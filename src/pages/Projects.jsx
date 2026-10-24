@@ -58,9 +58,10 @@ const PROJECTS = [
   },
   {
     title: 'fangjet.com',
+    links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/fangjet' }],
     description:
-      "You're looking at it :) Originally a WordPress site, rebuilt using React and Vite, with every page prerendered to plain HTML at build time for speed and SEO. Served from Firebase Hosting, with Cloudflare running the DNS and the source kept in a private GitHub repo.",
-    tags: ['React', 'Vite', 'SEO', 'Firebase Hosting', 'Cloudflare DNS'],
+      "You're looking at it :) Originally a WordPress site, rebuilt using React and Vite, with every page prerendered to plain HTML at build time for speed and SEO. Served from Firebase Hosting, with Cloudflare running the DNS. The source is open on GitHub under the MIT license.",
+    tags: ['React', 'Vite', 'Tailwind CSS', 'SEO', 'Firebase Hosting', 'Cloudflare DNS'],
   },
 ]
 
