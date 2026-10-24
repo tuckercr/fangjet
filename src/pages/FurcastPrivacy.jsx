@@ -10,9 +10,9 @@ export default function FurcastPrivacy() {
         description="How the Furcast Weather apps for iPhone, iPad and Android handle your data."
         path="/weather"
       />
-      <div className="legal-prose mx-auto max-w-[760px]">
+      <div className="legal-prose mx-auto max-w-3xl">
         <span className="fj-label">// furcast weather</span>
-        <h1 className="mb-3 text-[clamp(2rem,4vw,2.8rem)]">Furcast Weather Privacy Policy</h1>
+        <h1 className="mb-3 text-5xl leading-tight narrow:text-3xl">Furcast Weather Privacy Policy</h1>
         <p className="font-mono">Last updated: October 23, 2026</p>
 
         <h2>Summary</h2>

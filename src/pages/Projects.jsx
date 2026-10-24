@@ -92,7 +92,7 @@ const JSON_LD = {
 
 export default function Projects() {
   return (
-    <div className="mx-auto max-w-page px-8 pb-20 narrow:px-5 narrow:pb-15">
+    <div className="mx-auto max-w-page px-8 pb-20 narrow:px-5 narrow:pb-16">
       <SEO
         title="Projects"
         description="Android and iOS apps by Colin Tucker: Elsie accessibility launcher, Furcast Weather, Hark wake word detection, Rolo CRM, and more."
@@ -101,11 +101,12 @@ export default function Projects() {
       />
       <div className="mb-12 border-b border-border pt-12 pb-10 narrow:pt-8 narrow:pb-7">
         <span className="fj-label">// public projects &amp; private contract work</span>
-        <h1 className="mt-2.5 mb-4 text-[clamp(2.2rem,4vw,3rem)]">Projects</h1>
-        <p className="m-0 max-w-[680px] text-[1.15rem] text-muted">Public projects and private contract work, built with the habits I bring to production: clear architecture, CI, honest error handling, and real users on the other end.</p>
+        <h1 className="mt-2.5 mb-4 text-5xl leading-tight narrow:text-4xl">Projects</h1>
+        <p className="m-0 max-w-2xl text-lg leading-relaxed text-muted">Public projects and private contract work, built with the habits I bring to production: clear architecture, CI, honest error handling, and real users on the other end.</p>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(440px,1fr))] gap-6 narrow:grid-cols-[1fr]">
+      {/* Two columns while each card can be at least 440px wide, then one; no utility sizes auto-fill tracks. */}
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(440px,1fr))] gap-6 narrow:grid-cols-1">
         {PROJECTS.map(p => (
           <ProjectCard key={p.title} {...p} />
         ))}

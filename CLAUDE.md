@@ -24,8 +24,10 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
   - `@layer components`: `.fj-label` and `.fj-btn` / `.fj-btn-primary` / `.fj-btn-secondary` (shared by
     most pages), `.legal-prose` for the long text of the two privacy pages, and the CRT widget's glow
     and scanlines (`.crt`). `@utility hero-gradient` is the green hero background.
-  - Font sizes use arbitrary values such as `text-[1.05rem]`, not `text-base` / `text-lg`, because
-    Tailwind's named sizes also set a line-height.
+  - Sizes and spacing use Tailwind's default scale (`text-lg`, `leading-relaxed`, `max-w-2xl`, `py-1`).
+    Named font sizes also set a line-height, so pair them with a `leading-*` class when the text
+    should keep the site's looser line spacing. Arbitrary values are kept only where a comment says
+    why (the CRT geometry, the cursor height, two grid templates).
 - **No TypeScript** for now, to keep the learning surface small.
 - **SEO**: every page renders `<SEO title description path>` (`src/components/SEO.jsx`, react-helmet-async)
   for its title, description, canonical URL and social previews. Public pages are listed in

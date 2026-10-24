@@ -1,13 +1,13 @@
 import { useForm, ValidationError } from '@formspree/react'
 import SEO from '../components/SEO'
 
-const listLink = 'font-mono text-[0.95rem] text-accent-hover transition-[color] duration-150 hover:text-accent-bright'
-const listLabel = 'font-mono text-[0.8rem] tracking-[0.06em] text-muted uppercase'
+const listLink = 'font-mono text-base leading-relaxed text-accent-hover transition-colors duration-150 hover:text-accent-bright'
+const listLabel = 'font-mono text-xs leading-relaxed tracking-wider text-muted uppercase'
 const field =
-  'resize-y rounded-md border border-border bg-surface px-3.5 py-3 font-sans text-[1rem] text-text outline-none ' +
-  'transition-[border-color] duration-150 placeholder:text-[#484f58] focus:border-accent-hover'
-const fieldLabel = 'font-mono text-[0.9rem] text-muted'
-const fieldError = 'font-mono text-[0.85rem] text-[#f87171]'
+  'resize-y rounded-md border border-border bg-surface px-3.5 py-3 font-sans text-base leading-tight text-text outline-none ' +
+  'transition-colors duration-150 placeholder:text-[#484f58] focus:border-accent-hover'
+const fieldLabel = 'font-mono text-sm leading-relaxed text-muted'
+const fieldError = 'font-mono text-sm leading-relaxed text-[#f87171]'
 
 export default function Contact() {
   const [state, handleSubmit] = useForm('xljennko')
@@ -23,8 +23,8 @@ export default function Contact() {
       <section className="hero-gradient border-b border-border px-8 pb-16 narrow:px-5 narrow:pb-12">
         <div className="mx-auto max-w-page pt-14">
           <span className="fj-label">// get in touch</span>
-          <h1 className="mb-5 text-[clamp(2.4rem,5vw,3.4rem)] font-bold">Let's talk.</h1>
-          <p className="m-0 text-[1.1rem] leading-[1.75] text-muted">
+          <h1 className="mb-5 text-6xl leading-tight font-bold narrow:text-4xl">Let's talk.</h1>
+          <p className="m-0 text-lg leading-relaxed text-muted">
             Hiring for a mobile role, or just want to talk shop? Tell me what
             you're working on and I'll give you an honest read. No sales pitch.
           </p>
@@ -34,7 +34,7 @@ export default function Contact() {
       <section className="px-8 pt-16 pb-20 narrow:px-5 narrow:pt-10 narrow:pb-16">
         <div className="mx-auto flex max-w-page items-start gap-20 narrow:flex-col narrow:gap-12">
 
-          <div className="flex-[0_0_260px] narrow:w-full narrow:flex-none">
+          <div className="w-64 flex-none narrow:w-full">
             <span className="fj-label">// direct</span>
             <ul className="flex flex-col gap-5">
               <li className="flex flex-col gap-1">
@@ -55,7 +55,7 @@ export default function Contact() {
               </li>
               <li className="flex flex-col gap-1">
                 <span className={listLabel}>Location</span>
-                <span className="font-mono text-[0.95rem] text-text">Knoxville, TN</span>
+                <span className="font-mono text-base leading-relaxed text-text">Knoxville, TN</span>
               </li>
             </ul>
           </div>
@@ -64,7 +64,7 @@ export default function Contact() {
             <span className="fj-label">// send a message</span>
             {state.succeeded ? (
               <div className="rounded-lg border border-accent bg-surface px-6 py-7">
-                <p className="m-0 font-mono text-[1rem] text-accent-bright">Got it. I'll be in touch shortly.</p>
+                <p className="m-0 font-mono text-base leading-relaxed text-accent-bright">Got it. I'll be in touch shortly.</p>
               </div>
             ) : (
               <form className="flex flex-col gap-1.5" onSubmit={handleSubmit}>

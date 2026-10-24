@@ -8,9 +8,9 @@ export default function PrivacyPolicy() {
         description="How fangjet.com handles visitor data."
         path="/privacy-policy"
       />
-      <div className="legal-prose mx-auto max-w-[760px]">
+      <div className="legal-prose mx-auto max-w-3xl">
         <span className="fj-label">// legal</span>
-        <h1 className="mb-3 text-[clamp(2rem,4vw,2.8rem)]">Privacy Policy</h1>
+        <h1 className="mb-3 text-5xl leading-tight narrow:text-3xl">Privacy Policy</h1>
         <p className="font-mono">Last updated: October 23, 2026</p>
 
         <h2>Overview</h2>
