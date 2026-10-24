@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import './Home.css'
 
 const CARDS = [
   {
@@ -69,41 +68,47 @@ const STACK = [
 
 export default function Home() {
   return (
-    <div className="home">
+    <div>
       <SEO path="/" jsonLd={JSON_LD} />
 
       {/* Hero */}
-      <section className="home-hero">
-        <div className="home-hero-inner">
-          <div className="home-hero-text">
+      <section className="hero-gradient border-b border-border px-8 pb-14 narrow:px-5 narrow:pb-12">
+        <div className="mx-auto flex max-w-page items-center gap-16 pt-14 narrow:flex-col-reverse narrow:gap-8 narrow:pt-9">
+          <div className="flex-1">
             <span className="fj-label">// senior android engineer</span>
-            <h1 className="home-headline">Colin Tucker</h1>
-            <p className="home-subhead">
+            <h1 className="mt-4 mb-5 text-[clamp(2.8rem,6vw,4.2rem)] leading-[1.1] font-bold text-text">Colin Tucker</h1>
+            <p className="mb-8 max-w-[540px] text-[1.15rem] leading-[1.75] text-muted narrow:max-w-full">
               10+ years shipping production Android. Former Staff Engineer and Android team lead,
               then senior at Digital Turbine on carrier apps used by millions of people daily.
             </p>
-            <div className="home-cta-row">
+            <div className="flex flex-wrap gap-3.5">
               <a href="/colin-tucker-resume.pdf" target="_blank" rel="noopener noreferrer" className="fj-btn fj-btn-primary">Download resume ↓</a>
               <Link to="/projects" className="fj-btn fj-btn-secondary">See my work</Link>
               <Link to="/contact" className="fj-btn fj-btn-secondary">Get in touch</Link>
             </div>
           </div>
-          <div className="home-hero-photo">
-            <img src="/headshot.webp" alt="Colin Tucker" width="431" height="440" className="home-headshot" />
+          <div className="shrink-0">
+            <img
+              src="/headshot.webp"
+              alt="Colin Tucker"
+              width="431"
+              height="440"
+              className="block size-[220px] rounded-[50%] border-3 border-border object-cover object-top grayscale-[10%] narrow:size-40"
+            />
           </div>
         </div>
       </section>
 
       {/* About */}
-      <section className="home-about">
-        <div className="home-about-inner">
+      <section className="border-b border-border px-8 py-14 narrow:px-5">
+        <div className="mx-auto max-w-page">
           <span className="fj-label">// about me</span>
-          <p className="home-about-lead">
+          <p className="mb-5 max-w-[820px] text-[1.35rem] leading-[1.75] font-normal text-text">
             Based in Knoxville, TN. I've been building Android apps since the early days of the platform,
             shipping across accessibility tools, weather apps, audio processing, computer vision, and CRM.
             Open to senior and staff mobile roles.
           </p>
-          <p className="home-about-detail">
+          <p className="mb-4 max-w-[720px] text-[1.1rem] leading-[1.8] text-muted">
             I care about clean architecture, tests that catch real bugs, CI that fails fast, and code the next
             person can actually work with. I write Kotlin and Swift natively. A significant portion of my work
             is contract work that never makes it onto a public GitHub profile: a whiteboard camera app,
@@ -113,25 +118,35 @@ export default function Home() {
       </section>
 
       {/* Value cards */}
-      <section className="home-cards">
+      <section className="mx-auto flex max-w-page gap-5 border-b border-border px-8 py-14 narrow:flex-col narrow:px-5 narrow:py-10">
         {CARDS.map(({ title, body }) => (
-          <div key={title} className="home-card">
-            <span className="home-card-icon">&gt;_</span>
-            <h3>{title}</h3>
-            <p>{body}</p>
+          <div
+            key={title}
+            className="min-w-[200px] flex-1 rounded-lg border border-border bg-surface px-6 py-7 transition-[border-color] duration-200 hover:border-accent-hover"
+          >
+            <span className="mb-3.5 block font-mono text-[1.2rem] font-bold text-accent-hover">&gt;_</span>
+            <h3 className="mb-2.5 text-[1.1rem] text-text">{title}</h3>
+            <p className="m-0 text-[1rem] leading-[1.7] text-muted">{body}</p>
           </div>
         ))}
       </section>
 
       {/* Stack */}
-      <section className="home-stack">
-        <span className="home-stack-label fj-label">// tech stack</span>
-        <div className="home-stack-groups">
+      <section className="mx-auto max-w-page px-8 pt-12 pb-18 narrow:px-5">
+        <span className="fj-label">// tech stack</span>
+        <div className="mt-5 flex flex-col gap-5">
           {STACK.map(({ group, tags }) => (
-            <div key={group} className="home-stack-row">
-              <span className="home-stack-group">{group}</span>
-              <div className="home-tags">
-                {tags.map(t => <span key={t} className="home-tag">{t}</span>)}
+            <div key={group} className="grid grid-cols-[90px_1fr] items-baseline gap-4 narrow:grid-cols-[1fr] narrow:gap-2.5">
+              <span className="font-mono text-[0.85rem] text-accent-hover before:content-['//_']">{group}</span>
+              <div className="flex flex-wrap gap-2.5">
+                {tags.map(t => (
+                  <span
+                    key={t}
+                    className="rounded-sm border border-border bg-surface px-3.5 py-1.5 font-mono text-[0.9rem] text-muted transition-[color,border-color] duration-150 hover:border-accent-hover hover:text-accent-hover"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
           ))}

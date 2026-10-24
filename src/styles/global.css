@@ -1,104 +1,210 @@
-/* ---- Variables ---- */
-:root {
-  --bg:           #0d1117;
-  --surface:      #161b22;
-  --border:       #30363d;
-  --accent:       #148526;
-  --accent-hover: #1bbc68;
-  --accent-bright:#18e699;
-  --text:         #e6edf3;
-  --muted:        #8b949e;
-  --mono:         'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  --sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --radius:       8px;
-  --max-width:    1080px;
+/* Tailwind v4. Only src/ is scanned for class names. */
+@import "tailwindcss" source("..");
+
+/* ---- Design tokens ----
+   Each token becomes utilities: bg-bg, bg-surface, border-border, text-text, text-muted, text-accent,
+   text-accent-hover, text-accent-bright, font-mono, font-sans, max-w-page. The default colour palette
+   is cleared so only the site's own colours exist. */
+@theme {
+  --color-*: initial;
+  --color-bg:            #0d1117;
+  --color-surface:       #161b22;
+  --color-border:        #30363d;
+  --color-accent:        #148526;
+  --color-accent-hover:  #1bbc68;
+  --color-accent-bright: #18e699;
+  --color-text:          #e6edf3;
+  --color-muted:         #8b949e;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --container-page: 1080px;
+
+  /* The old stylesheets used the CSS default easing for every transition. */
+  --default-transition-timing-function: ease;
+
+  /* Blinking cursors: the AI page terminal (animate-blink) and the CRT widget (animate-crt-blink). */
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-crt-blink: crt-blink 1s step-end infinite;
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes crt-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
+/* The green hero background on the home, AI, contact and 404 pages. A three-stop gradient in sRGB:
+   Tailwind's bg-linear-* utilities interpolate in oklab, which would shift the colours slightly. */
+@utility hero-gradient {
+  background: linear-gradient(160deg, #0d1117 0%, #0f1f14 50%, #0d1117 100%);
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 18px;
-  line-height: 1.7;
-  overflow-x: hidden;
+/* Breakpoints: the old stylesheets used max-width queries at 768px and 640px, inclusive. Tailwind's
+   max-md / max-sm are exclusive (width < 768px), so these keep the exact same edges. */
+@custom-variant narrow (@media (max-width: 768px));
+@custom-variant phone (@media (max-width: 640px));
+
+/* Tailwind's hover: only applies on devices with a real pointer. The old CSS used plain :hover
+   everywhere (so a tap also shows the hover colour on phones); keep that behaviour. */
+@custom-variant hover (&:hover);
+
+/* ---- Base: page defaults, and what Preflight resets that the site relied on ---- */
+@layer base {
+  html {
+    /* Preflight turns these off; keep the browser defaults the site always had. */
+    -webkit-text-size-adjust: auto;
+    -webkit-tap-highlight-color: initial;
+  }
+
+  html, body {
+    min-height: 100vh;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main { flex: 1; }
+
+  p { font-size: 1.05rem; line-height: 1.75; color: var(--color-text); margin: 0 0 1em; }
+  a { color: var(--color-accent-hover); text-decoration: none; }
+  a:hover { color: var(--color-accent-bright); }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  hr { border: none; border-top: 1px solid var(--color-border); }
+
+  /* Preflight makes form controls inherit the body's 1.7 line-height; browsers use normal. */
+  button, input, select, textarea { line-height: normal; }
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* ---- Shared components ----
+   Used on most pages, so kept as two small classes rather than repeating the same utility string. */
+@layer components {
+  .fj-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-accent-bright);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
+  }
+
+  .fj-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+  }
+
+  .fj-btn-primary {
+    background: var(--color-accent);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+  }
+
+  .fj-btn-primary:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: #0d1117;
+  }
+
+  .fj-btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .fj-btn-secondary:hover {
+    border-color: var(--color-accent-hover);
+    color: var(--color-accent-hover);
+  }
 }
 
-main { flex: 1; }
+@layer components {
+  /* Long-form text on the two privacy pages (/privacy-policy and /weather). Dozens of plain p, h2,
+     ul and li elements: styling them from one parent class beats repeating utilities on each. */
+  .legal-prose h2 {
+    font-size: 1.3rem;
+    margin: 48px 0 14px;
+    color: var(--color-text);
+  }
 
-p { font-size: 1.05rem; line-height: 1.75; color: var(--text); margin: 0 0 1em; }
-a { color: var(--accent-hover); text-decoration: none; }
-a:hover { color: var(--accent-bright); }
+  .legal-prose p {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin: 0 0 16px;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text);
-  font-family: var(--sans);
-  font-weight: 600;
-  line-height: 1.25;
-  margin: 0;
-}
+  .legal-prose ul {
+    list-style: disc;
+    padding-left: 24px;
+    margin: 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-ul, ol { margin: 0; padding: 0; }
-hr { border: none; border-top: 1px solid var(--border); }
-img { max-width: 100%; display: block; }
+  .legal-prose li {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
 
-/* ---- Shared label ---- */
-.fj-label {
-  display: block;
-  font-family: var(--mono);
-  font-size: 1rem;
-  color: var(--accent-bright);
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-  opacity: 0.9;
-}
+  .legal-prose a { color: var(--color-accent-hover); }
+  .legal-prose a:hover { color: var(--color-accent-bright); }
 
-/* ---- Buttons ---- */
-.fj-btn {
-  display: inline-block;
-  padding: 12px 26px;
-  border-radius: 6px;
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none;
-  border: 1.5px solid transparent;
-}
+  /* CRT widget (src/components/CRTWidget.jsx): the layered outer glow and the scanline overlay,
+     which is a pseudo-element drawn over the screen. Layout and colours are utilities in the JSX. */
+  .crt {
+    box-shadow:
+      0 0 0 1px #0a0a0a,
+      0 0 40px rgba(51, 255, 51, 0.1),
+      0 24px 64px rgba(0, 0, 0, 0.7);
+  }
 
-.fj-btn-primary {
-  background: var(--accent);
-  color: var(--text);
-  border-color: var(--accent);
-}
-
-.fj-btn-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: #0d1117;
-}
-
-.fj-btn-secondary {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--border);
-}
-
-.fj-btn-secondary:hover {
-  border-color: var(--accent-hover);
-  color: var(--accent-hover);
+  .crt::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.15) 3px,
+      rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 11px;
+  }
 }

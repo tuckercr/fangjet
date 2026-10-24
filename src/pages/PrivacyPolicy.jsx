@@ -1,18 +1,17 @@
 import SEO from '../components/SEO'
-import './PrivacyPolicy.css'
 
 export default function PrivacyPolicy() {
   return (
-    <div className="privacy">
+    <div className="px-8 pt-14 pb-20 narrow:px-5 narrow:pt-10 narrow:pb-16">
       <SEO
         title="Privacy Policy"
         description="How fangjet.com handles visitor data."
         path="/privacy-policy"
       />
-      <div className="privacy-inner">
+      <div className="legal-prose mx-auto max-w-[760px]">
         <span className="fj-label">// legal</span>
-        <h1>Privacy Policy</h1>
-        <p className="privacy-date">Last updated: October 23, 2026</p>
+        <h1 className="mb-3 text-[clamp(2rem,4vw,2.8rem)]">Privacy Policy</h1>
+        <p className="font-mono">Last updated: October 23, 2026</p>
 
         <h2>Overview</h2>
         <p>This policy covers fangjet.com, the portfolio website of Colin Tucker (FangJet LLC). It does not cover any app or product that is linked from the site; those have their own policies.</p>
@@ -43,7 +42,7 @@ export default function PrivacyPolicy() {
 
         <h2>Contact</h2>
         <p>Questions about this policy:</p>
-        <p className="privacy-contact">FangJet LLC · <a href="mailto:colin@fangjet.com">colin@fangjet.com</a></p>
+        <p className="font-mono">FangJet LLC · <a href="mailto:colin@fangjet.com">colin@fangjet.com</a></p>
       </div>
     </div>
   )

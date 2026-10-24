@@ -1,7 +1,5 @@
 import ProjectCard from '../components/ProjectCard'
-import '../components/ProjectCard.css'
 import SEO from '../components/SEO'
-import './Projects.css'
 
 const PROJECTS = [
   {
@@ -94,20 +92,20 @@ const JSON_LD = {
 
 export default function Projects() {
   return (
-    <div className="projects-page">
+    <div className="mx-auto max-w-page px-8 pb-20 narrow:px-5 narrow:pb-15">
       <SEO
         title="Projects"
         description="Android and iOS apps by Colin Tucker: Elsie accessibility launcher, Furcast Weather, Hark wake word detection, Rolo CRM, and more."
         path="/projects"
         jsonLd={JSON_LD}
       />
-      <div className="projects-header">
+      <div className="mb-12 border-b border-border pt-12 pb-10 narrow:pt-8 narrow:pb-7">
         <span className="fj-label">// public projects &amp; private contract work</span>
-        <h1>Projects</h1>
-        <p>Public projects and private contract work, built with the habits I bring to production: clear architecture, CI, honest error handling, and real users on the other end.</p>
+        <h1 className="mt-2.5 mb-4 text-[clamp(2.2rem,4vw,3rem)]">Projects</h1>
+        <p className="m-0 max-w-[680px] text-[1.15rem] text-muted">Public projects and private contract work, built with the habits I bring to production: clear architecture, CI, honest error handling, and real users on the other end.</p>
       </div>
 
-      <div className="projects-grid">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(440px,1fr))] gap-6 narrow:grid-cols-[1fr]">
         {PROJECTS.map(p => (
           <ProjectCard key={p.title} {...p} />
         ))}

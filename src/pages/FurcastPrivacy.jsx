@@ -1,20 +1,19 @@
 import SEO from '../components/SEO'
-import './PrivacyPolicy.css'
 
 // Privacy policy for the Furcast Weather apps (iOS and Android). Linked from the apps and their
 // store listings, deliberately not from the site's navigation or footer.
 export default function FurcastPrivacy() {
   return (
-    <div className="privacy">
+    <div className="px-8 pt-14 pb-20 narrow:px-5 narrow:pt-10 narrow:pb-16">
       <SEO
         title="Furcast Weather Privacy Policy"
         description="How the Furcast Weather apps for iPhone, iPad and Android handle your data."
         path="/weather"
       />
-      <div className="privacy-inner">
+      <div className="legal-prose mx-auto max-w-[760px]">
         <span className="fj-label">// furcast weather</span>
-        <h1>Furcast Weather Privacy Policy</h1>
-        <p className="privacy-date">Last updated: October 23, 2026</p>
+        <h1 className="mb-3 text-[clamp(2rem,4vw,2.8rem)]">Furcast Weather Privacy Policy</h1>
+        <p className="font-mono">Last updated: October 23, 2026</p>
 
         <h2>Summary</h2>
         <p>Furcast Weather is a weather app made by FangJet LLC ("we", "our", or "us") for iPhone, iPad and Android. It needs no account, shows no ads and does not track you across other apps or websites. We do not sell or rent your information.</p>
@@ -74,7 +73,7 @@ export default function FurcastPrivacy() {
 
         <h2>Contact</h2>
         <p>Questions about this policy or the app:</p>
-        <p className="privacy-contact">FangJet LLC · <a href="mailto:colin@fangjet.com">colin@fangjet.com</a></p>
+        <p className="font-mono">FangJet LLC · <a href="mailto:colin@fangjet.com">colin@fangjet.com</a></p>
       </div>
     </div>
   )
