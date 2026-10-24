@@ -5,9 +5,9 @@ const listLink = 'font-mono text-base leading-relaxed text-accent-hover transiti
 const listLabel = 'font-mono text-xs leading-relaxed tracking-wider text-muted uppercase'
 const field =
   'resize-y rounded-md border border-border bg-surface px-3.5 py-3 font-sans text-base leading-tight text-text outline-none ' +
-  'transition-colors duration-150 placeholder:text-[#484f58] focus:border-accent-hover'
+  'transition-colors duration-150 placeholder:text-faint focus:border-accent-hover'
 const fieldLabel = 'font-mono text-sm leading-relaxed text-muted'
-const fieldError = 'font-mono text-sm leading-relaxed text-[#f87171]'
+const fieldError = 'font-mono text-sm leading-relaxed text-error'
 
 export default function Contact() {
   const [state, handleSubmit] = useForm('xljennko')

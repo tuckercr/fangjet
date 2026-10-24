@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 // their bottom border (the old stylesheet did this with !important, so it applied to resume too).
 const linkBase =
   'block whitespace-nowrap px-4 py-5 font-mono text-base leading-relaxed font-normal transition-colors duration-150 ' +
-  'hover:bg-[rgba(255,255,255,0.04)] hover:text-text phone:px-1 phone:py-3.5 phone:border-b-0'
+  'hover:bg-white/4 hover:text-text phone:px-1 phone:py-3.5 phone:border-b-0'
 
 // The active page link is green on phones, hovered or not (hover:text-text would otherwise win).
 const pageLink = ({ isActive }) =>
@@ -13,7 +13,7 @@ const pageLink = ({ isActive }) =>
 
 const socialLink =
   'flex size-9 items-center justify-center rounded-md text-muted transition-colors duration-150 ' +
-  'hover:bg-[rgba(255,255,255,0.06)] hover:text-text'
+  'hover:bg-white/6 hover:text-text'
 
 const bar = 'block h-0.5 w-6 origin-center rounded-xs bg-muted transition duration-200'
 
@@ -25,8 +25,8 @@ export default function Nav() {
     <header className="sticky top-0 z-50 flex items-center gap-8 border-b border-border bg-surface px-8 phone:flex-wrap phone:px-5">
       <NavLink to="/" className="mr-auto flex shrink-0 items-center gap-2.5 py-3.5" onClick={close}>
         <svg className="block h-auto w-6" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="22" height="22" rx="4" fill="#0d1117"/>
-          <text x="1" y="16" fontFamily="'JetBrains Mono', 'Fira Code', monospace" fontSize="12" fontWeight="700" fill="#1bbc68">&gt;_</text>
+          <rect width="22" height="22" rx="4" className="fill-bg"/>
+          <text x="1" y="16" fontFamily="'JetBrains Mono', 'Fira Code', monospace" fontSize="12" fontWeight="700" className="fill-accent-hover">&gt;_</text>
         </svg>
         <span className="whitespace-nowrap font-mono text-xl leading-relaxed font-semibold tracking-tight text-text">fangjet</span>
       </NavLink>

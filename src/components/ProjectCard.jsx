@@ -24,7 +24,7 @@ export default function ProjectCard({ title, description, tags, links, statusTag
 
       {statusTag && (
         <div className="mb-3.5 flex flex-wrap gap-2">
-          <span className={`${tag} border-[#3b4f7a] bg-[#1c2233] text-[#7aa2f7]`}>{statusTag}</span>
+          <span className={`${tag} border-info-border bg-info-bg text-info`}>{statusTag}</span>
         </div>
       )}
 
@@ -32,7 +32,7 @@ export default function ProjectCard({ title, description, tags, links, statusTag
 
       {tags && tags.length > 0 && (
         <div className="mb-3 flex flex-wrap gap-2">
-          {tags.map(t => <span key={t} className={`${tag} border-accent bg-[#10540e] text-accent-hover`}>{t}</span>)}
+          {tags.map(t => <span key={t} className={`${tag} border-accent bg-accent-deep text-accent-hover`}>{t}</span>)}
         </div>
       )}
 

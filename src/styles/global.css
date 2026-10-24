@@ -15,6 +15,34 @@
   --color-accent-bright: #18e699;
   --color-text:          #e6edf3;
   --color-muted:         #8b949e;
+  --color-faint:         #484f58;   /* form placeholders */
+  --color-surface-raised: #1c2128;  /* the AI page terminal's title bar */
+  --color-accent-deep:   #10540e;   /* project tag background */
+  --color-hero-tint:     #0f1f14;   /* middle stop of the hero gradient */
+  --color-error:         #f87171;
+  --color-white:         #fff;      /* only with an opacity, for hover tints: bg-white/4 */
+
+  /* The project card's status badge ("Coming soon" and the like). */
+  --color-info:          #7aa2f7;
+  --color-info-bg:       #1c2233;
+  --color-info-border:   #3b4f7a;
+
+  /* macOS window buttons on the AI page terminal. */
+  --color-window-close:    #ff5f57;
+  --color-window-minimize: #febc2e;
+  --color-window-zoom:     #28c840;
+
+  /* The CRT widget on the home page: case, header strip, phosphor screen and text. */
+  --color-crt-rim:         #0a0a0a;
+  --color-crt-frame:       #1c1c1c;
+  --color-crt-case:        #080f08;
+  --color-crt-header:      #111;
+  --color-crt-header-edge: #060f06;
+  --color-crt-label:       #2a5a2a;
+  --color-crt-screen:      #020f02;
+  --color-crt-text:        #33cc33;
+  --color-crt-dim:         #1a6a1a;
+  --color-crt-bright:      #66ff66;
 
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -41,7 +69,7 @@
 /* The green hero background on the home, AI, contact and 404 pages. A three-stop gradient in sRGB:
    Tailwind's bg-linear-* utilities interpolate in oklab, which would shift the colours slightly. */
 @utility hero-gradient {
-  background: linear-gradient(160deg, #0d1117 0%, #0f1f14 50%, #0d1117 100%);
+  background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-hero-tint) 50%, var(--color-bg) 100%);
 }
 
 /* Breakpoints: the old stylesheets used max-width queries at 768px and 640px, inclusive. Tailwind's
@@ -134,7 +162,7 @@
   .fj-btn-primary:hover {
     background: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
-    color: #0d1117;
+    color: var(--color-bg);
   }
 
   .fj-btn-secondary {
@@ -187,7 +215,7 @@
      which is a pseudo-element drawn over the screen. Layout and colours are utilities in the JSX. */
   .crt {
     box-shadow:
-      0 0 0 1px #0a0a0a,
+      0 0 0 1px var(--color-crt-rim),
       0 0 40px rgba(51, 255, 51, 0.1),
       0 24px 64px rgba(0, 0, 0, 0.7);
   }

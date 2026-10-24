@@ -15,8 +15,10 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
   - `@import "tailwindcss" source("..")` (only `src/` is scanned for class names).
   - A `@theme` block with the design tokens (below). The default colour palette is cleared, so only the
     site's colours exist: `bg-bg`, `bg-surface`, `border-border`, `text-text`, `text-muted`,
-    `text-accent`, `text-accent-hover`, `text-accent-bright`, plus `font-mono`, `font-sans`,
-    `max-w-page`, `animate-blink` and `animate-crt-blink`.
+    `text-accent`, `text-accent-hover`, `text-accent-bright` and the others listed below, plus
+    `font-mono`, `font-sans`, `max-w-page`, `animate-blink` and `animate-crt-blink`. Every colour is a
+    token: add one to `@theme` rather than writing a hex value in a class. The only literal colours
+    left are the translucent black and green in shadows and glows.
   - Custom variants: `narrow:` (max-width 768px) and `phone:` (max-width 640px), matching the old
     breakpoints exactly, and `hover:` redefined as plain `:hover`.
   - `@layer base`: body defaults, element styles (`p`, `a`, headings) and the few Preflight resets
@@ -72,6 +74,16 @@ The `@theme` block in `src/styles/global.css` (each also exists as a CSS variabl
 --color-accent-bright: #18e699   /* text-accent-bright */
 --color-text:          #e6edf3   /* text-text */
 --color-muted:         #8b949e   /* text-muted */
+--color-faint:         #484f58   /* placeholder:text-faint */
+--color-surface-raised: #1c2128  /* bg-surface-raised: the AI terminal's title bar */
+--color-accent-deep:   #10540e   /* bg-accent-deep: project tags */
+--color-hero-tint:     #0f1f14   /* middle of the hero gradient */
+--color-error:         #f87171   /* text-error */
+--color-white:         #fff      /* with an opacity only: hover:bg-white/4 */
+--color-info, -info-bg, -info-border   /* the project card status badge */
+--color-window-close, -minimize, -zoom /* macOS buttons on the AI terminal */
+--color-crt-*          /* the CRT widget: rim, frame, case, header, header-edge, label,
+                          screen, text, dim, bright */
 --container-page:      1080px    /* max-w-page */
 --font-mono:           'JetBrains Mono', …
 --font-sans:           'Inter', …

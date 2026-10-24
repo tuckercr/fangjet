@@ -37,10 +37,10 @@ export default function AI() {
           <p className="mb-12 font-mono text-lg leading-relaxed text-accent-hover">Tools change. Judgment doesn't.</p>
 
           <div className="max-w-xl overflow-hidden rounded-lg border border-border bg-bg shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-            <div className="flex items-center gap-1.5 border-b border-border bg-[#1c2128] px-4 py-2.5">
-              <span className="size-3 shrink-0 rounded-full bg-[#ff5f57]" />
-              <span className="size-3 shrink-0 rounded-full bg-[#febc2e]" />
-              <span className="size-3 shrink-0 rounded-full bg-[#28c840]" />
+            <div className="flex items-center gap-1.5 border-b border-border bg-surface-raised px-4 py-2.5">
+              <span className="size-3 shrink-0 rounded-full bg-window-close" />
+              <span className="size-3 shrink-0 rounded-full bg-window-minimize" />
+              <span className="size-3 shrink-0 rounded-full bg-window-zoom" />
               <span className="ml-2 font-mono text-xs leading-relaxed text-muted">claude-code · fangjet</span>
             </div>
             <div className="px-6 py-5 font-mono text-sm leading-relaxed">
