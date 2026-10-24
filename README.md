@@ -1,7 +1,6 @@
 # fangjet.com
 
-The source for [fangjet.com](https://fangjet.com), the site of Colin Tucker and FangJet LLC: Android and
-iOS apps, built natively.
+The source for [fangjet.com](https://fangjet.com), the site of Colin Tucker and FangJet LLC
 
 ## Stack
 
