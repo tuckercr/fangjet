@@ -9,8 +9,23 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
 - **Prerendered**: `npm run build` does a client build, an SSR build of `src/entry-server.jsx`, then
   `scripts/prerender.mjs` writes every route to static HTML in `dist/`. `src/main.jsx` hydrates when the
   page already has content.
-- **Plain CSS**, no Tailwind or CSS-in-JS: `src/styles/global.css` holds the tokens and resets, and each
-  component has its own stylesheet.
+- **Tailwind CSS v4**, through the `@tailwindcss/vite` plugin; no CSS-in-JS and no per-component
+  stylesheets. Components style themselves with utility classes. `src/styles/global.css` is the only
+  stylesheet and holds:
+  - `@import "tailwindcss" source("..")` (only `src/` is scanned for class names).
+  - A `@theme` block with the design tokens (below). The default colour palette is cleared, so only the
+    site's colours exist: `bg-bg`, `bg-surface`, `border-border`, `text-text`, `text-muted`,
+    `text-accent`, `text-accent-hover`, `text-accent-bright`, plus `font-mono`, `font-sans`,
+    `max-w-page`, `animate-blink` and `animate-crt-blink`.
+  - Custom variants: `narrow:` (max-width 768px) and `phone:` (max-width 640px), matching the old
+    breakpoints exactly, and `hover:` redefined as plain `:hover`.
+  - `@layer base`: body defaults, element styles (`p`, `a`, headings) and the few Preflight resets
+    the site relied on (form controls keep `line-height: normal`).
+  - `@layer components`: `.fj-label` and `.fj-btn` / `.fj-btn-primary` / `.fj-btn-secondary` (shared by
+    most pages), `.legal-prose` for the long text of the two privacy pages, and the CRT widget's glow
+    and scanlines (`.crt`). `@utility hero-gradient` is the green hero background.
+  - Font sizes use arbitrary values such as `text-[1.05rem]`, not `text-base` / `text-lg`, because
+    Tailwind's named sizes also set a line-height.
 - **No TypeScript** for now, to keep the learning surface small.
 - **SEO**: every page renders `<SEO title description path>` (`src/components/SEO.jsx`, react-helmet-async)
   for its title, description, canonical URL and social previews. Public pages are listed in
@@ -43,20 +58,21 @@ publishes or drops uncommitted work.
 
 ## Design tokens
 
-From `src/styles/global.css`:
+The `@theme` block in `src/styles/global.css` (each also exists as a CSS variable, e.g.
+`var(--color-muted)`):
 
 ```css
---bg:           #0d1117
---surface:      #161b22
---border:       #30363d
---accent:       #148526
---accent-hover: #1bbc68
---accent-bright:#18e699
---text:         #e6edf3
---muted:        #8b949e
---max-width:    1080px
---mono:         'JetBrains Mono', …
---sans:         'Inter', …
+--color-bg:            #0d1117   /* bg-bg */
+--color-surface:       #161b22   /* bg-surface */
+--color-border:        #30363d   /* border-border */
+--color-accent:        #148526   /* bg-accent, border-accent */
+--color-accent-hover:  #1bbc68   /* text-accent-hover */
+--color-accent-bright: #18e699   /* text-accent-bright */
+--color-text:          #e6edf3   /* text-text */
+--color-muted:         #8b949e   /* text-muted */
+--container-page:      1080px    /* max-w-page */
+--font-mono:           'JetBrains Mono', …
+--font-sans:           'Inter', …
 ```
 
 ## Writing style

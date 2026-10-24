@@ -10,7 +10,10 @@ iOS apps, built natively.
   load fast and search engines see real content. React then hydrates it in the browser
 - **Per-page SEO**: titles, descriptions, canonical URLs and social previews via `react-helmet-async`
   (`src/components/SEO.jsx`), plus `sitemap.xml` and `robots.txt`
-- **Plain CSS**, no framework: `src/styles/global.css` and a stylesheet per component
+- **Tailwind CSS v4** (via `@tailwindcss/vite`): utility classes in the JSX. The design tokens live in
+  a `@theme` block in `src/styles/global.css` (`bg-surface`, `text-muted`, `border-border`, `font-mono`,
+  `max-w-page` and so on), which also holds the little custom CSS left: base element styles, the shared
+  `.fj-label` and `.fj-btn` classes, the hero gradient, the privacy-page prose and the CRT widget's glow
 - **Formspree** for the contact form
 - **Firebase Hosting**, with **Cloudflare** for DNS
 
@@ -40,7 +43,7 @@ firebase deploy --only hosting
 src/
   pages/             one component per route (Home, Projects, AI, Contact, the privacy policies)
   components/        Nav, Footer, ProjectCard, SEO and friends
-  styles/            global styles and design tokens
+  styles/            global.css: Tailwind, design tokens and the remaining custom CSS
   entry-server.jsx   SSR entry used by the prerender step
 public/              copied as-is: sitemap, robots.txt, résumé, images
 scripts/             prerender.mjs
