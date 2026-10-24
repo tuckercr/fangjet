@@ -1,20 +1,53 @@
 # fangjet.com
 
-The source for [fangjet.com](https://fangjet.com), the site of Colin Tucker and FangJet LLC
+**The portfolio of Colin Tucker, senior Android engineer.** Hand-built with React, prerendered to static HTML, and served from Firebase Hosting.
+
+[![Live site](https://img.shields.io/badge/live-fangjet.com-18e699?style=flat-square&labelColor=0d1117)](https://fangjet.com)
+[![License: MIT](https://img.shields.io/badge/license-MIT-148526?style=flat-square&labelColor=0d1117)](LICENSE)
+![React 19](https://img.shields.io/badge/React-19-61dafb?style=flat-square&labelColor=0d1117&logo=react&logoColor=61dafb)
+![Vite](https://img.shields.io/badge/Vite-8-a78bfa?style=flat-square&labelColor=0d1117&logo=vite&logoColor=a78bfa)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&labelColor=0d1117&logo=tailwindcss&logoColor=38bdf8)
+![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting-ffca28?style=flat-square&labelColor=0d1117&logo=firebase&logoColor=ffca28)
+
+<p align="center">
+  <a href="https://fangjet.com">
+    <img src="docs/screenshot.png" alt="The fangjet.com home page" width="720">
+  </a>
+</p>
+
+I'm an Android engineer, and I built this site in React to understand what the framework does before
+adding another one on top. The goal was a site I'd be happy to inherit: fast, searchable, secured, and
+small enough to read in an afternoon.
+
+**Looking for a senior or staff mobile engineer?** See the [projects](https://fangjet.com/projects),
+grab the [resume](https://fangjet.com/colin-tucker-resume.pdf), or [get in touch](https://fangjet.com/contact).
+
+## What's inside
+
+- **Prerendered, then hydrated.** The build renders every route to plain HTML (`scripts/prerender.mjs`), so
+  pages load fast and crawlers and link previews see real content. React takes over in the browser.
+- **Per-page SEO.** Titles, descriptions, canonical URLs and social previews through `react-helmet-async`
+  (`src/components/SEO.jsx`), schema.org JSON-LD for the person and the projects, a sitemap, and a real
+  `noindex` 404 page.
+- **Security headers and caching.** A strict Content-Security-Policy, HSTS, `X-Frame-Options` and friends,
+  immutable caching for hashed assets, and `no-cache` for the HTML shells. All of it lives in
+  [`firebase.json`](firebase.json).
+- **Design tokens in Tailwind v4.** The palette, fonts and breakpoints are defined once in a `@theme` block
+  in [`src/styles/global.css`](src/styles/global.css), so components never hard-code a colour.
+- **No cookies, no analytics, no tracking.** The only data the site handles is a contact form message,
+  delivered by Formspree.
 
 ## Stack
 
-- **React 19** and **Vite**, with **React Router** for the pages
-- **Prerendered**: the build renders every route to plain HTML (`scripts/prerender.mjs`), so pages
-  load fast and search engines see real content. React then hydrates it in the browser
-- **Per-page SEO**: titles, descriptions, canonical URLs and social previews via `react-helmet-async`
-  (`src/components/SEO.jsx`), plus `sitemap.xml` and `robots.txt`
-- **Tailwind CSS v4** (via `@tailwindcss/vite`): utility classes in the JSX. The design tokens live in
-  a `@theme` block in `src/styles/global.css` (`bg-surface`, `text-muted`, `border-border`, `font-mono`,
-  `max-w-page` and so on), which also holds the little custom CSS left: base element styles, the shared
-  `.fj-label` and `.fj-btn` classes, the hero gradient, the privacy-page prose and the CRT widget's glow
-- **Formspree** for the contact form
-- **Firebase Hosting**, with **Cloudflare** for DNS
+| | |
+|---|---|
+| UI | React 19, React Router |
+| Build | Vite, a custom SSR prerender step |
+| Styling | Tailwind CSS v4 (`@tailwindcss/vite`), a handful of custom classes |
+| SEO | react-helmet-async, JSON-LD, sitemap, robots.txt |
+| Forms | Formspree |
+| Hosting | Firebase Hosting, with Cloudflare for DNS |
+| Lint | oxlint |
 
 ## Running it
 
@@ -33,8 +66,8 @@ npm run build
 firebase deploy --only hosting
 ```
 
-`firebase.json` serves `dist/`, sets caching headers, sends unknown paths to the app, and
-301-redirects the old WordPress URLs (`/about`, `/services`) to the home page.
+`firebase.json` serves `dist/`, sets the security and caching headers, answers unknown paths with the
+prerendered 404 page, and 301-redirects the old WordPress URLs (`/about`, `/services`) to the home page.
 
 ## Layout
 
@@ -46,6 +79,9 @@ src/
   entry-server.jsx   SSR entry used by the prerender step
 public/              copied as-is: sitemap, robots.txt, résumé, images
 scripts/             prerender.mjs
+docs/                the screenshot above
 ```
+
+## License
 
 Released under the [MIT License](LICENSE). © FangJet LLC.

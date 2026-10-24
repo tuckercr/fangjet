@@ -39,8 +39,8 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
 ## Hosting
 
 - Firebase Hosting, project `fangjet-web` (`https://fangjet-web.web.app`); DNS is on Cloudflare.
-- `firebase.json` serves `dist/`, rewrites unknown paths to the app, sets caching headers, and
-  301-redirects the old WordPress URLs `/about` and `/services` to `/`.
+- `firebase.json` serves `dist/`, answers unknown paths with the prerendered 404 page, sets caching and
+  security headers, and 301-redirects the old WordPress URLs `/about` and `/services` to `/`.
 
 ## Deploying
 
