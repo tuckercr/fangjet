@@ -1,0 +1,27 @@
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.footer-dot {
+  opacity: 0.4;
+}
+
+.footer-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--accent-hover);
+}

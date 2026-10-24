@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+.idea/
+.agents/
+.claude/
+dataconnect/
+.firebase/
+dist-server
+skills-lock.json

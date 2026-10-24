@@ -1,0 +1,104 @@
+/* ---- Variables ---- */
+:root {
+  --bg:           #0d1117;
+  --surface:      #161b22;
+  --border:       #30363d;
+  --accent:       #148526;
+  --accent-hover: #1bbc68;
+  --accent-bright:#18e699;
+  --text:         #e6edf3;
+  --muted:        #8b949e;
+  --mono:         'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius:       8px;
+  --max-width:    1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; }
+
+p { font-size: 1.05rem; line-height: 1.75; color: var(--text); margin: 0 0 1em; }
+a { color: var(--accent-hover); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+ul, ol { margin: 0; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); }
+img { max-width: 100%; display: block; }
+
+/* ---- Shared label ---- */
+.fj-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--accent-bright);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+
+/* ---- Buttons ---- */
+.fj-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+}
+
+.fj-btn-primary {
+  background: var(--accent);
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.fj-btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #0d1117;
+}
+
+.fj-btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.fj-btn-secondary:hover {
+  border-color: var(--accent-hover);
+  color: var(--accent-hover);
+}
