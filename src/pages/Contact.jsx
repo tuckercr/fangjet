@@ -34,7 +34,7 @@ export default function Contact() {
       <section className="px-8 pt-16 pb-20 narrow:px-5 narrow:pt-10 narrow:pb-16">
         <div className="mx-auto flex max-w-page items-start gap-20 narrow:flex-col narrow:gap-12">
 
-          <div className="w-64 flex-none narrow:w-full">
+          <div className="w-80 flex-none narrow:w-full">
             <span className="fj-label">// direct</span>
             <ul className="flex flex-col gap-5">
               <li className="flex flex-col gap-1">
