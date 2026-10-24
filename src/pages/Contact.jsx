@@ -26,7 +26,7 @@ export default function Contact() {
           <h1 className="mb-5 text-6xl leading-tight font-bold narrow:text-4xl">Let's talk.</h1>
           <p className="m-0 text-lg leading-relaxed text-muted">
             Hiring for a mobile role, or just want to talk shop? Tell me what
-            you're working on and I'll give you an honest read. No sales pitch.
+            you're working on and I'd love to chat. This form does generate a lot of spam, so connecting via LinkedIn is preferred.
           </p>
         </div>
       </section>
