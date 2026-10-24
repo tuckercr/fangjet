@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const BASE = 'https://fangjet.com'
-const DEFAULT_DESC = 'Senior Android engineer based in Knoxville, TN. 10+ years shipping Kotlin and Compose apps to millions of users. Open to full-time roles.'
+const DEFAULT_DESC = 'Senior Android engineer based near Knoxville, TN. 10+ years shipping Kotlin and Compose apps to millions of users. Open to full-time roles.'
 const DEFAULT_IMG = `${BASE}/preview-image.png`
 
 export default function SEO({ title, description, path = '', jsonLd }) {

@@ -16,7 +16,7 @@ export default function Contact() {
     <div>
       <SEO
         title="Contact"
-        description="Get in touch with Colin Tucker, Senior Android & iOS engineer in Knoxville, TN. Open to senior and staff mobile roles."
+        description="Get in touch with Colin Tucker, Senior Android & iOS engineer near Knoxville, TN. Open to senior and staff mobile roles."
         path="/contact"
       />
 

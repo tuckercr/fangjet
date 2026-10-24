@@ -104,7 +104,7 @@ export default function Home() {
         <div className="mx-auto max-w-page">
           <span className="fj-label">// about me</span>
           <p className="mb-5 max-w-3xl text-xl leading-relaxed font-normal text-text">
-            Based in Knoxville, TN. I've been building Android apps since the early days of the platform,
+            Based near Knoxville, TN. I've been building Android apps since the early days of the platform,
             shipping across accessibility tools, weather apps, audio processing, computer vision, and CRM.
             Open to senior and staff mobile roles.
           </p>
