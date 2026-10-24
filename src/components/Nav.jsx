@@ -54,7 +54,6 @@ export default function Nav() {
               onClick={close}
             >resume ↓</a>
           </li>
-          <li><NavLink to="/ai" className={pageLink} onClick={close}>ai</NavLink></li>
           <li><NavLink to="/contact" className={pageLink} onClick={close}>contact</NavLink></li>
         </ul>
         <div className="ml-1 flex items-center gap-1 border-l border-border pl-3 phone:m-0 phone:justify-start phone:border-t phone:border-l-0 phone:px-1 phone:py-3">
