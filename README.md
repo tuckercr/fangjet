@@ -48,4 +48,4 @@ public/              copied as-is: sitemap, robots.txt, résumé, images
 scripts/             prerender.mjs
 ```
 
-© FangJet LLC. All rights reserved.
+Released under the [MIT License](LICENSE). © FangJet LLC.
