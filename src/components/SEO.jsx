@@ -1,19 +1,19 @@
-import { Helmet } from 'react-helmet-async'
-
 const BASE = 'https://fangjet.com'
 const DEFAULT_DESC = 'Senior Android engineer based near Knoxville, TN. 10+ years shipping Kotlin and Compose apps to millions of users. Open to full-time roles.'
 const DEFAULT_IMG = `${BASE}/preview-image.png`
 
-export default function SEO({ title, description, path = '', jsonLd }) {
+// React 19 hoists <title>, <meta> and <link> rendered anywhere in the tree into <head>,
+// so no head-management library is needed.
+export default function SEO({ title, description, path = '', jsonLd, noindex = false }) {
   const fullTitle = title ? `${title} | FangJet` : 'Colin Tucker | Senior Android Engineer'
   const desc = description || DEFAULT_DESC
   const url = `${BASE}${path}`
 
   return (
-    <Helmet>
+    <>
       <title>{fullTitle}</title>
       <meta name="description" content={desc} />
-      <link rel="canonical" href={url} />
+      {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={url} />}
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
@@ -27,6 +27,6 @@ export default function SEO({ title, description, path = '', jsonLd }) {
       <meta name="twitter:image" content={DEFAULT_IMG} />
 
       {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
-    </Helmet>
+    </>
   )
 }

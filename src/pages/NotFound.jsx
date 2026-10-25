@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import SEO from '../components/SEO'
 
 export default function NotFound() {
   return (
     <div>
-      <SEO title="Page not found" path="/" />
-      <Helmet>
-        <meta name="robots" content="noindex" />
-      </Helmet>
+      <SEO title="Page not found" noindex />
       <section className="hero-gradient border-b border-border px-8 pb-16 narrow:px-5 narrow:pb-12">
         <div className="mx-auto max-w-page pt-14">
           <span className="fj-label">// 404</span>

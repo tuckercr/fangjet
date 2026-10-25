@@ -31,8 +31,10 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
     should keep the site's looser line spacing. Arbitrary values are kept only where a comment says
     why (the CRT geometry, the cursor height, two grid templates).
 - **No TypeScript** for now, to keep the learning surface small.
-- **SEO**: every page renders `<SEO title description path>` (`src/components/SEO.jsx`, react-helmet-async)
-  for its title, description, canonical URL and social previews. Public pages are listed in
+- **SEO**: every page renders `<SEO title description path>` (`src/components/SEO.jsx`)
+  for its title, description, canonical URL and social previews. It renders plain `<title>`, `<meta>` and
+  `<link>` tags, which React 19 hoists into `<head>`; there is no head library. `scripts/prerender.mjs`
+  fails the build if a page has a missing or duplicated tag. Public pages are listed in
   `public/sitemap.xml`.
 - **Formspree** handles the contact form.
 

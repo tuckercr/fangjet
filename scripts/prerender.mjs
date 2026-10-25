@@ -9,7 +9,7 @@ const server = path.resolve('dist-server/entry-server.js')
 const { render } = await import(pathToFileURL(server).href)
 
 let template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
-// Drop the default tags; each page supplies its own through Helmet.
+// Drop the default tags; each page supplies its own through <SEO>.
 template = template
   .replace(/<title>[\s\S]*?<\/title>\s*/, '')
   .replace(/<meta name="description"[^>]*>\s*/, '')
@@ -35,11 +35,44 @@ const pages = {
   '/__404__': '404.html',
 }
 
+// Fail the build instead of shipping a page with missing or duplicated SEO tags.
+const BASE = 'https://fangjet.com'
+const count = (html, re) => (html.match(re) || []).length
+
+function check(url, file, html, body) {
+  const is404 = url === '/__404__'
+  const problems = []
+  const once = (label, re) => {
+    const n = count(html, re)
+    if (n !== 1) problems.push(`${label}: found ${n}, expected 1`)
+  }
+  once('<title>', /<title>/g)
+  once('meta description', /<meta name="description"/g)
+  once('og:title', /<meta property="og:title"/g)
+  once('og:url', /<meta property="og:url"/g)
+  once('og:image', /<meta property="og:image"/g)
+  once('twitter:card', /<meta name="twitter:card"/g)
+  if (is404) {
+    once('noindex', /<meta name="robots" content="noindex"/g)
+  } else {
+    once('canonical', /<link rel="canonical"/g)
+    const want = `${BASE}${url === '/' ? '/' : url}`
+    if (!html.includes(`<link rel="canonical" href="${want}"`)) problems.push(`canonical should be ${want}`)
+    if (html.includes('name="robots"')) problems.push('unexpected robots meta')
+  }
+  if (/<(title|meta)\b/.test(body)) problems.push('head tags left in the page body')
+  if (problems.length) {
+    console.error(`prerender: ${file} (${url}) failed SEO checks:\n  - ${problems.join('\n  - ')}`)
+    process.exit(1)
+  }
+}
+
 for (const [url, file] of Object.entries(pages)) {
   const { html, head } = render(url === '/__404__' ? '/404-not-found' : url)
   const out = template
     .replace('</head>', `    ${preloads}\n    ${head}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+  check(url, file, out, html)
   fs.writeFileSync(path.join(dist, file), out)
   console.log('prerendered', url, '->', file)
 }

@@ -26,9 +26,9 @@ grab the [resume](https://fangjet.com/colin-tucker-resume.pdf), or [get in touch
 
 - **Prerendered, then hydrated.** The build renders every route to plain HTML (`scripts/prerender.mjs`), so
   pages load fast and crawlers and link previews see real content. React takes over in the browser.
-- **Per-page SEO.** Titles, descriptions, canonical URLs and social previews through `react-helmet-async`
-  (`src/components/SEO.jsx`), schema.org JSON-LD for the person and the projects, a sitemap, and a real
-  `noindex` 404 page.
+- **Per-page SEO.** Titles, descriptions, canonical URLs and social previews rendered with React 19's native head tags
+  (`src/components/SEO.jsx`, no head library), schema.org JSON-LD for the person and the projects, a sitemap, and a real
+  `noindex` 404 page. The build fails if any page is missing or duplicating a tag.
 - **Security headers and caching.** A strict Content-Security-Policy, HSTS, `X-Frame-Options` and friends,
   immutable caching for hashed assets, and `no-cache` for the HTML shells. All of it lives in
   [`firebase.json`](firebase.json).
@@ -55,7 +55,7 @@ Fonts are self-hosted and preloaded, every route is prerendered, and the whole J
 | UI | React 19, React Router |
 | Build | Vite, a custom SSR prerender step |
 | Styling | Tailwind CSS v4 (`@tailwindcss/vite`), a handful of custom classes |
-| SEO | react-helmet-async, JSON-LD, sitemap, robots.txt |
+| SEO | React 19 native metadata, JSON-LD, sitemap, robots.txt |
 | Forms | Formspree |
 | Hosting | Firebase Hosting, with Cloudflare for DNS |
 | Lint | oxlint |
