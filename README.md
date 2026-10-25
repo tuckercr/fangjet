@@ -88,7 +88,7 @@ src/
   components/        Nav, Footer, ProjectCard, SEO and friends
   styles/            global.css: Tailwind, design tokens and the remaining custom CSS
   entry-server.jsx   SSR entry used by the prerender step
-public/              copied as-is: sitemap, robots.txt, résumé, images
+public/              served unchanged at the site root: sitemap, robots.txt, resume, images
 scripts/             prerender.mjs
 docs/                the screenshot above
 ```
