@@ -37,6 +37,17 @@ grab the [resume](https://fangjet.com/colin-tucker-resume.pdf), or [get in touch
 - **No cookies and no cross-site tracking.** Visits are counted with Cloudflare Web Analytics, which is
   cookieless, and the only personal data the site handles is a contact form message, delivered by Formspree.
 
+## Lighthouse
+
+Measured against the live site in October 2026, on the home, projects and contact pages:
+
+| | Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|---|
+| Mobile | 98 to 100 | 92 to 95 | 100 | 100 |
+| Desktop | 100 | 92 to 95 | 100 | 100 |
+
+Fonts are self-hosted and preloaded, every route is prerendered, and the whole JavaScript bundle is about 100 KB gzipped.
+
 ## Stack
 
 | | |
