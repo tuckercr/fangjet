@@ -17,6 +17,14 @@ template = template
   .replace(/<meta property="og:type"[^>]*>\s*/, '')
   .replace(/<meta name="twitter:[^>]*>\s*/g, '')
 
+// Preload the fonts used above the fold. Their filenames are hashed, so look them up in dist/.
+const assets = fs.readdirSync(path.join(dist, 'assets'))
+const preloads = ['inter-latin-400-normal', 'inter-latin-600-normal', 'jetbrains-mono-latin-400-normal']
+  .map(prefix => assets.find(f => f.startsWith(prefix) && f.endsWith('.woff2')))
+  .filter(Boolean)
+  .map(f => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
+  .join('\n    ')
+
 const pages = {
   '/': 'index.html',
   '/ai': 'ai.html',
@@ -30,7 +38,7 @@ const pages = {
 for (const [url, file] of Object.entries(pages)) {
   const { html, head } = render(url === '/__404__' ? '/404-not-found' : url)
   const out = template
-    .replace('</head>', `    ${head}\n  </head>`)
+    .replace('</head>', `    ${preloads}\n    ${head}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
   fs.writeFileSync(path.join(dist, file), out)
   console.log('prerendered', url, '->', file)

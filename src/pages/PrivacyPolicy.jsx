@@ -28,11 +28,11 @@ export default function PrivacyPolicy() {
         <p>The site is hosted on Google Firebase Hosting. Like most web hosts, it may record standard request information such as IP address, browser type, and the pages requested, for security and operation of the service. I do not use this data to identify or profile visitors.</p>
 
         <h2>Third-Party Services</h2>
-        <p>Pages load fonts from Google Fonts, which means your browser requests them from Google's servers and Google receives your IP address as part of that request. These services have their own privacy policies:</p>
+        <p>The site's fonts are served from fangjet.com itself, so your browser makes no font requests to Google. The services below have their own privacy policies:</p>
         <ul>
           <li><strong>Formspree</strong> (contact form): <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">formspree.io/legal/privacy-policy</a></li>
           <li><strong>Cloudflare Web Analytics</strong> (visit statistics): <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">cloudflare.com/privacypolicy</a></li>
-          <li><strong>Google Firebase Hosting and Google Fonts</strong>: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
+          <li><strong>Google Firebase Hosting</strong> (where the site is hosted): <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
         </ul>
 
         <h2>Your Rights</h2>

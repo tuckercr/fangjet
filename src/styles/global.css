@@ -1,3 +1,11 @@
+/* Self-hosted fonts (latin subset): Inter for text, JetBrains Mono for labels and code. */
+@import "@fontsource/inter/latin-300.css";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-600.css";
+
 /* Tailwind v4. Only src/ is scanned for class names. */
 @import "tailwindcss" source("..");
 
