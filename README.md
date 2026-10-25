@@ -34,8 +34,8 @@ grab the [resume](https://fangjet.com/colin-tucker-resume.pdf), or [get in touch
   [`firebase.json`](firebase.json).
 - **Design tokens in Tailwind v4.** The palette, fonts and breakpoints are defined once in a `@theme` block
   in [`src/styles/global.css`](src/styles/global.css), so components never hard-code a colour.
-- **No cookies, no analytics, no tracking.** The only data the site handles is a contact form message,
-  delivered by Formspree.
+- **No cookies and no cross-site tracking.** Visits are counted with Cloudflare Web Analytics, which is
+  cookieless, and the only personal data the site handles is a contact form message, delivered by Formspree.
 
 ## Stack
 
