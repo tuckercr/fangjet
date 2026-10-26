@@ -17,8 +17,8 @@ const PROJECTS = [
   {
     title: 'Sunny & Misty',
     links: [
-      { label: 'Android', href: 'https://github.com/tuckercr/cats-dogs' },
-      { label: 'iOS', href: 'https://github.com/tuckercr/cats-dogs-iOS' },
+      { label: 'Android', href: 'https://github.com/tuckercr/weather-android' },
+      { label: 'iOS', href: 'https://github.com/tuckercr/weather-iOS' },
     ],
     description:
       'A weather app where Sunny the dog and Misty the cat act out the forecast and suggest the best time for a walk. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and daily briefings scheduled with WorkManager. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
@@ -82,7 +82,7 @@ const JSON_LD = {
     app('Elsie Family', 'https://www.elsiefamily.com',
       'Accessibility-focused Android launcher for older adults, with a paired caregiver companion app.',
       'Android', 'UtilitiesApplication'),
-    app('Sunny & Misty', 'https://github.com/tuckercr/cats-dogs',
+    app('Sunny & Misty', 'https://github.com/tuckercr/weather-android',
       'A pet weather app built natively for Android (Kotlin, Compose) and iOS (Swift, SwiftUI).',
       'Android, iOS', 'WeatherApplication'),
     app('Hark', 'https://github.com/tuckercr/wakewordapp',
