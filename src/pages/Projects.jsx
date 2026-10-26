@@ -21,8 +21,8 @@ const PROJECTS = [
       { label: 'iOS', href: 'https://github.com/tuckercr/weather-iOS' },
     ],
     description:
-      'A weather app where Sunny the dog and Misty the cat act out the forecast and suggest the best time for a walk. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and daily briefings scheduled with WorkManager. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
-    tags: ['Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'WorkManager', 'Room', 'Firebase'],
+      'A weather app where Sunny the dog and Misty the cat act out the forecast and suggest the best time for a walk. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and scheduled daily weather briefings. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'WorkManager', 'DataStore', 'Firebase'],
     note: 'Unit tests + Compose UI tests on Android · XCTest on iOS · GitHub Actions CI',
   },
   {
