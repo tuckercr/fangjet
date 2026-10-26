@@ -15,13 +15,13 @@ const PROJECTS = [
     note: '260+ unit tests · multi-module · GitHub Actions CI',
   },
   {
-    title: 'Furcast Weather',
+    title: 'Sunny & Misty',
     links: [
       { label: 'Android', href: 'https://github.com/tuckercr/cats-dogs' },
       { label: 'iOS', href: 'https://github.com/tuckercr/cats-dogs-iOS' },
     ],
     description:
-      'A weather app where a cat and dog act out the forecast and suggest the best time to walk the dog. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and daily briefings scheduled with WorkManager. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
+      'A weather app where Sunny the dog and Misty the cat act out the forecast and suggest the best time for a walk. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and daily briefings scheduled with WorkManager. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
     tags: ['Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'WorkManager', 'Room', 'Firebase'],
     note: 'Unit tests + Compose UI tests on Android · XCTest on iOS · GitHub Actions CI',
   },
@@ -82,7 +82,7 @@ const JSON_LD = {
     app('Elsie Family', 'https://www.elsiefamily.com',
       'Accessibility-focused Android launcher for older adults, with a paired caregiver companion app.',
       'Android', 'UtilitiesApplication'),
-    app('Furcast Weather', 'https://github.com/tuckercr/cats-dogs',
+    app('Sunny & Misty', 'https://github.com/tuckercr/cats-dogs',
       'A pet weather app built natively for Android (Kotlin, Compose) and iOS (Swift, SwiftUI).',
       'Android, iOS', 'WeatherApplication'),
     app('Hark', 'https://github.com/tuckercr/wakewordapp',
@@ -96,7 +96,7 @@ export default function Projects() {
     <div className="mx-auto max-w-page px-8 pb-20 narrow:px-5 narrow:pb-16">
       <SEO
         title="Projects"
-        description="Android and iOS apps by Colin Tucker: Elsie accessibility launcher, Furcast Weather, Hark wake word detection, Rolo CRM, and more."
+        description="Android and iOS apps by Colin Tucker: Elsie accessibility launcher, Sunny & Misty, Hark wake word detection, Rolo CRM, and more."
         path="/projects"
         jsonLd={JSON_LD}
       />

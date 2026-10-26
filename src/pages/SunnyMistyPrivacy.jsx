@@ -1,22 +1,22 @@
 import SEO from '../components/SEO'
 
-// Privacy policy for the Furcast Weather apps (iOS and Android). Linked from the apps and their
+// Privacy policy for the Sunny & Misty apps (iOS and Android). Linked from the apps and their
 // store listings, deliberately not from the site's navigation or footer.
-export default function FurcastPrivacy() {
+export default function SunnyMistyPrivacy() {
   return (
     <div className="px-8 pt-14 pb-20 narrow:px-5 narrow:pt-10 narrow:pb-16">
       <SEO
-        title="Furcast Weather Privacy Policy"
-        description="How the Furcast Weather apps for iPhone, iPad and Android handle your data."
+        title="Sunny & Misty Privacy Policy"
+        description="How the Sunny & Misty weather apps for iPhone, iPad and Android handle your data."
         path="/weather"
       />
       <div className="legal-prose mx-auto max-w-3xl">
-        <span className="fj-label">// furcast weather</span>
-        <h1 className="mb-3 text-5xl leading-tight narrow:text-3xl">Furcast Weather Privacy Policy</h1>
-        <p className="font-mono">Last updated: October 23, 2026</p>
+        <span className="fj-label">// sunny &amp; misty</span>
+        <h1 className="mb-3 text-5xl leading-tight narrow:text-3xl">Sunny &amp; Misty Privacy Policy</h1>
+        <p className="font-mono">Last updated: October 26, 2026</p>
 
         <h2>Summary</h2>
-        <p>Furcast Weather is a weather app made by FangJet LLC ("we", "our", or "us") for iPhone, iPad and Android. It needs no account, shows no ads and does not track you across other apps or websites. We do not sell or rent your information.</p>
+        <p>Sunny &amp; Misty is a weather app made by FangJet LLC ("we", "our", or "us") for iPhone, iPad and Android. It needs no account, shows no ads and does not track you across other apps or websites. We do not sell or rent your information.</p>
         <p>To show you the weather, the app sends the location you ask about to weather services. It also sends anonymous usage statistics, which you can turn off. This page explains exactly what is sent, to whom, and why.</p>
 
         <h2>Information kept on your device</h2>
@@ -58,7 +58,7 @@ export default function FurcastPrivacy() {
         </ul>
 
         <h2>Children</h2>
-        <p>Furcast Weather is not directed at children under 13, and we do not knowingly collect personal information from them.</p>
+        <p>Sunny &amp; Misty is not directed at children under 13, and we do not knowingly collect personal information from them.</p>
 
         <h2>Your choices and rights</h2>
         <ul>

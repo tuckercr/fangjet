@@ -59,7 +59,7 @@ publishes or drops uncommitted work.
 ## Pages
 
 - `/`, `/projects`, `/ai`, `/contact`, `/privacy-policy`: linked from the nav or footer.
-- `/weather`: the Furcast Weather app's privacy policy. Linked from the apps and their store listings
+- `/weather`: the Sunny & Misty app's privacy policy. Linked from the apps and their store listings
   only, deliberately not from the site's navigation, footer or sitemap.
 
 ## Design tokens
