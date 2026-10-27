@@ -24,7 +24,7 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
   - `@layer base`: body defaults, element styles (`p`, `a`, headings) and the few Preflight resets
     the site relied on (form controls keep `line-height: normal`).
   - `@layer components`: `.fj-label` and `.fj-btn` / `.fj-btn-primary` / `.fj-btn-secondary` (shared by
-    most pages), `.legal-prose` for the long text of the two privacy pages, and the CRT widget's glow
+    most pages), `.legal-prose` for the long text of the privacy page, and the CRT widget's glow
     and scanlines (`.crt`). `@utility hero-gradient` is the green hero background.
   - Sizes and spacing use Tailwind's default scale (`text-lg`, `leading-relaxed`, `max-w-2xl`, `py-1`).
     Named font sizes also set a line-height, so pair them with a `leading-*` class when the text
@@ -59,8 +59,6 @@ publishes or drops uncommitted work.
 ## Pages
 
 - `/`, `/projects`, `/ai`, `/contact`, `/privacy-policy`: linked from the nav or footer.
-- `/weather`: the Sunny & Misty app's privacy policy. Linked from the apps and their store listings
-  only, deliberately not from the site's navigation, footer or sitemap.
 
 ## Design tokens
 

@@ -85,7 +85,7 @@
         ]
       },
       {
-        "source": "/@(projects|ai|contact|privacy-policy|weather)",
+        "source": "/@(projects|ai|contact|privacy-policy)",
         "headers": [
           {
             "key": "Cache-Control",

@@ -186,7 +186,7 @@
 }
 
 @layer components {
-  /* Long-form text on the two privacy pages (/privacy-policy and /weather). Dozens of plain p, h2,
+  /* Long-form text on the privacy page (/privacy-policy). Dozens of plain p, h2,
      ul and li elements: styling them from one parent class beats repeating utilities on each. */
   .legal-prose h2 {
     font-size: var(--text-xl);

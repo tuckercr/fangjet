@@ -31,7 +31,6 @@ const pages = {
   '/projects': 'projects.html',
   '/contact': 'contact.html',
   '/privacy-policy': 'privacy-policy.html',
-  '/weather': 'weather.html',
   '/__404__': '404.html',
 }
 

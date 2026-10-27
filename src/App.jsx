@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import AI from './pages/AI'
 import Projects from './pages/Projects'
 import PrivacyPolicy from './pages/PrivacyPolicy'
-import SunnyMistyPrivacy from './pages/SunnyMistyPrivacy'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import './styles/global.css'
@@ -21,7 +20,6 @@ export default function App() {
           <Route path="/ai" element={<AI />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/weather" element={<SunnyMistyPrivacy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
