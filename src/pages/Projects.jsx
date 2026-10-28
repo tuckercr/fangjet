@@ -32,7 +32,6 @@ const PROJECTS = [
     description:
       'A relationship-first CRM built for Data Story Strategy, a commercial translation firm for diagnostic and biotech companies, in production since July 2026. A configurable rules engine schedules each contact\'s next follow-up, and a dashboard and daily email surface what\'s overdue. An MCP server lets AI assistants read contacts and propose changes, with every agent write gated on human approval. Plain PHP 8.4 and MariaDB, server-rendered with no build step.',
     tags: ['PHP 8.4', 'MariaDB', 'PHPUnit', 'MCP'],
-    note: '400+ PHPUnit tests',
   },
   {
     title: 'Hark: Offline Wake Word Detection',
