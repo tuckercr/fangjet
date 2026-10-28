@@ -54,7 +54,6 @@ const PROJECTS = [
     description:
       'An AI-assisted diagnostic platform built for Data Story Strategy, a commercial translation firm. A client completes a structured intake and uploads a deck and supporting documents; the system also reads their website, then drafts a findings report with Claude. A consultant reviews and edits every report in an admin console (with Word export) before the client can see it. Also includes Stripe checkout, invitation links for sponsored engagements, Google Sign-In for admins, and automatic retry and alerting when generation fails.',
     tags: ['PHP 8.4', 'Stripe', 'PHPUnit', 'Claude API'],
-    note: '440+ PHPUnit tests',
   },
   {
     title: 'fangjet.com',
