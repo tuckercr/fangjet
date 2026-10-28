@@ -8,7 +8,7 @@ const CARDS = [
   },
   {
     title: 'Tested',
-    body: 'Unit tests on business logic, not just smoke tests. 260+ on Elsie, 400+ on Rolo CRM. I write tests because bugs in production are expensive.',
+    body: 'Unit tests on business logic, not just smoke tests. 500+ on Elsie, 110+ on Rolo CRM. I write tests because bugs in production are expensive.',
   },
   {
     title: 'Shipped',
@@ -112,7 +112,7 @@ export default function Home() {
             I care about clean architecture, tests that catch real bugs, CI that fails fast, and code the next
             person can actually work with. I write Kotlin and Swift natively. A significant portion of my work
             is contract work that never makes it onto a public GitHub profile: a whiteboard camera app,
-            a relationship CRM with 400+ unit tests, and an AI-assisted diagnostic platform.
+            a relationship CRM with 110+ unit tests, and an AI-assisted diagnostic platform.
           </p>
         </div>
       </section>
