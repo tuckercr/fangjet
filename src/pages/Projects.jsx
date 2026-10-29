@@ -101,7 +101,7 @@ export default function Projects() {
       <div className="mb-12 border-b border-border pt-12 pb-10 narrow:pt-8 narrow:pb-7">
         <span className="fj-label">// public projects &amp; private contract work</span>
         <h1 className="mt-2.5 mb-4 text-5xl leading-tight narrow:text-4xl">Projects</h1>
-        <p className="m-0 max-w-2xl text-lg leading-relaxed text-muted">Public projects and private contract work, built with the habits I bring to production: clear architecture, CI, honest error handling, and real users on the other end.</p>
+        <p className="m-0 max-w-3xl text-lg leading-relaxed text-pretty text-muted">Shipped apps, open source projects and client work, built with clear architecture, tests and CI. Contract work is marked as such, and public repos are linked.</p>
       </div>
 
       {/* Two columns while each card can be at least 440px wide, then one; no utility sizes auto-fill tracks. */}
