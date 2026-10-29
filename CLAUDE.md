@@ -93,4 +93,15 @@ The `@theme` block in `src/styles/global.css` (each also exists as a CSS variabl
 
 - No em dashes in site copy; use a colon, comma or full stop.
 - Keep claims plain and accurate (no superlatives like "optimal").
-- No AI attribution in commits, PRs or copy.
+- No AI attribution in commits, PRs or copy: never add a `Co-Authored-By` trailer to a commit, and never
+  add "Generated with Claude Code" (or similar) to a PR description.
+
+## Working agreements
+
+- **Never `git push` without an explicit go-ahead.** Commit locally, then wait to be told to push.
+  Pushing and deploying are separate steps; neither implies the other.
+- **"Deploy"** means: `npm run lint`, `npm run build`, check the live site matches `main` (see
+  Deploying), then `firebase deploy --only hosting`, then confirm the change on the live site.
+  **"Push"** means `git push` to `origin/main`. "Deploy and push" means both.
+- Commit only the files for the change being discussed. If other files are modified, leave them out.
+- Preview a visual change at desktop and phone widths before deploying it, and say so if it was not checked.
