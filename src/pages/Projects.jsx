@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 
 const PROJECTS = [
   {
+    id: 'elsie-family',
     title: 'Elsie Family',
     statusTag: 'Live on Play Store; caregiver app in active development',
     links: [
@@ -15,6 +16,7 @@ const PROJECTS = [
     note: '260+ unit tests · multi-module · GitHub Actions CI',
   },
   {
+    id: 'sunny-and-misty',
     title: 'Sunny & Misty',
     links: [
       { label: 'Android', href: 'https://github.com/tuckercr/weather-android' },
@@ -26,6 +28,7 @@ const PROJECTS = [
     note: 'Unit tests + Compose UI tests on Android · XCTest on iOS · GitHub Actions CI',
   },
   {
+    id: 'rolo-crm',
     title: 'Rolo CRM',
     statusTag: 'Contract work',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/rolo-showcase' }],
@@ -34,6 +37,7 @@ const PROJECTS = [
     tags: ['PHP 8.4', 'MariaDB', 'PHPUnit', 'MCP'],
   },
   {
+    id: 'hark',
     title: 'Hark: Offline Wake Word Detection',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/wakewordapp' }],
     description:
@@ -41,6 +45,7 @@ const PROJECTS = [
     tags: ['Kotlin', 'Jetpack Compose', 'PocketSphinx', 'Hilt', 'DataStore'],
   },
   {
+    id: 'whiteboard-camera',
     title: 'Whiteboard Camera',
     statusTag: 'Contract work',
     description:
@@ -48,6 +53,7 @@ const PROJECTS = [
     tags: ['Kotlin', 'OpenCV', 'Android NDK', 'Camera2', 'WebRTC', 'RTMP'],
   },
   {
+    id: 'commercial-translation-diagnostic',
     title: 'Commercial Translation Diagnostic',
     statusTag: 'Contract work',
     description:
@@ -55,6 +61,7 @@ const PROJECTS = [
     tags: ['PHP 8.4', 'Stripe', 'PHPUnit', 'Claude API'],
   },
   {
+    id: 'fangjet',
     title: 'fangjet.com',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/fangjet' }],
     description:
