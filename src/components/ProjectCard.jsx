@@ -2,7 +2,7 @@ const tag = 'rounded-sm border px-2.5 py-1 font-mono text-sm leading-relaxed'
 
 export default function ProjectCard({ id, title, description, tags, links, statusTag, note }) {
   return (
-    <div id={id} className="scroll-mt-24 rounded-lg border border-border bg-surface p-8 transition-colors duration-200 target:border-accent-hover hover:border-accent-hover">
+    <div id={id} className="scroll-mt-28 rounded-lg border border-border bg-surface p-8 transition-colors duration-200 target:border-accent-hover hover:border-accent-hover">
       <div className="mb-4 flex items-start justify-between gap-3">
         <h3 className="text-xl leading-tight text-text">{title}</h3>
         {links && links.length > 0 && (
