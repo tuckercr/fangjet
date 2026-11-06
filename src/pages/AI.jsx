@@ -1,20 +1,19 @@
 import SEO from '../components/SEO'
 
 const TERMINAL_LINES = [
-  { type: 'cmd',  text: 'explore -architecture clean-mvvm' },
-  { type: 'out',  text: '✓ Analyzing patterns across 847 files...' },
-  { type: 'out',  text: '✓ Identified 3 refactor opportunities' },
-  { type: 'out',  text: '✓ Generated migration plan' },
-  { type: 'cmd',  text: 'generate -tests -coverage 90' },
-  { type: 'out',  text: '✓ Writing unit tests for PaymentViewModel...' },
-  { type: 'out',  text: '✓ 47 tests generated, 0 failing' },
-  { type: 'cmd',  text: 'review -pr -senior-engineer' },
+  { type: 'cmd',  text: 'find why reminders fire an hour late after the DST change' },
+  { type: 'out',  text: 'Reading ReminderScheduler.kt, AlarmRepository.kt...' },
+  { type: 'out',  text: 'Cause: trigger time stored as local time, not UTC' },
+  { type: 'cmd',  text: 'write a failing test for that first' },
+  { type: 'out',  text: '✓ ReminderSchedulerTest: dstForwardShift (fails)' },
+  { type: 'cmd',  text: 'now fix it' },
+  { type: 'out',  text: '✓ 1 file changed, test passes' },
   { type: 'cursor', text: '' },
 ]
 
 const USE_CASES = [
-  { title: 'Architecture exploration', body: 'Mapping unfamiliar codebases, identifying patterns, and planning refactors before writing a line.' },
-  { title: 'Test generation', body: 'Bootstrapping unit test coverage on business logic fast, then reviewing and hardening what comes out.' },
+  { title: 'Architecture exploration', body: 'Mapping unfamiliar codebases, finding the patterns, and planning refactors before any code changes.' },
+  { title: 'Test generation', body: 'Building unit tests for business logic quickly, then reviewing and hardening what comes out.' },
   { title: 'Code review', body: 'Identifying the design decisions hiding inside a diff, not just the syntax.' },
   { title: 'MCP integration', body: 'Built an MCP connector for Rolo CRM so AI agents can read contacts, log activities, and surface follow-ups through natural conversation instead of a UI.' },
   { title: 'Documentation', body: 'First drafts of architecture docs and inline comments, kept honest by someone who knows the code.' },
@@ -46,9 +45,9 @@ export default function AI() {
             <div className="px-6 py-5 font-mono text-sm leading-relaxed">
               {TERMINAL_LINES.map((line, i) => (
                 line.type === 'cursor'
-                  ? <div key={i} className="flex gap-2.5 text-text"><span className="shrink-0 text-accent-bright">$</span>{/* h-[1em]: the cursor is exactly one line of text tall at any font size. */}<span className="inline-block h-[1em] w-2 animate-blink bg-accent-hover align-text-bottom" /></div>
+                  ? <div key={i} className="flex gap-2.5 text-text"><span className="shrink-0 text-accent-bright">&gt;</span>{/* h-[1em]: the cursor is exactly one line of text tall at any font size. */}<span className="inline-block h-[1em] w-2 animate-blink bg-accent-hover align-text-bottom" /></div>
                   : <div key={i} className={`flex gap-2.5 ${line.type === 'cmd' ? 'text-text' : 'pl-5 text-accent-hover'}`}>
-                      {line.type === 'cmd' && <span className="shrink-0 text-accent-bright">$</span>}
+                      {line.type === 'cmd' && <span className="shrink-0 text-accent-bright">&gt;</span>}
                       <span>{line.text}</span>
                     </div>
               ))}
