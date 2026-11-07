@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { PERSON_ID } from '../schema'
 
 const CARDS = [
   {
@@ -16,6 +17,11 @@ const CARDS = [
   },
 ]
 
+// One Person, one @id (PERSON_ID), referenced by the WebSite, the ProfilePage and the
+// Projects page, so search engines see a single Colin Tucker. Bump PROFILE_MODIFIED when
+// the profile content changes.
+const PROFILE_MODIFIED = '2026-11-07'
+
 const JSON_LD = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -26,18 +32,44 @@ const JSON_LD = {
       name: 'Colin Tucker',
       description: 'Portfolio of Colin Tucker, senior Android engineer.',
       inLanguage: 'en-US',
+      publisher: { '@id': PERSON_ID },
     },
     {
       '@type': 'ProfilePage',
       url: 'https://fangjet.com/',
+      dateModified: PROFILE_MODIFIED,
       isPartOf: { '@id': 'https://fangjet.com/#website' },
-      mainEntity: {
-        '@type': 'Person',
-        name: 'Colin Tucker',
-        jobTitle: 'Senior Android Engineer',
-        knowsAbout: ['Android', 'Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'Firebase'],
-        sameAs: ['https://github.com/tuckercr', 'https://www.linkedin.com/in/colin-r-tucker/'],
+      mainEntity: { '@id': PERSON_ID },
+    },
+    {
+      '@type': 'Person',
+      '@id': PERSON_ID,
+      name: 'Colin Tucker',
+      url: 'https://fangjet.com/',
+      image: 'https://fangjet.com/headshot.webp',
+      jobTitle: 'Senior Android Engineer',
+      email: 'mailto:colin@fangjet.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Knoxville',
+        addressRegion: 'TN',
+        addressCountry: 'US',
       },
+      worksFor: { '@type': 'Organization', name: 'FangJet LLC', url: 'https://fangjet.com/' },
+      knowsAbout: [
+        'Android development', 'Kotlin', 'Java', 'Jetpack Compose', 'Kotlin Coroutines',
+        'Mobile app architecture', 'Clean Architecture', 'Multi-module architecture',
+        'Dependency injection', 'SDK design', 'Android NDK', 'App performance',
+        'Accessibility', 'Software testing', 'Continuous integration',
+        'Play Store release management', 'Firebase',
+        'iOS development', 'Swift', 'SwiftUI',
+        'On-device speech recognition', 'Model Context Protocol', 'AI-assisted software engineering',
+      ],
+      sameAs: [
+        'https://github.com/tuckercr',
+        'https://www.linkedin.com/in/colin-r-tucker/',
+        'https://datastorystrategy.com/colin-tucker',
+      ],
     },
   ],
 }

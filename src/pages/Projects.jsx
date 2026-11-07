@@ -1,5 +1,6 @@
 import ProjectCard from '../components/ProjectCard'
 import SEO from '../components/SEO'
+import { PERSON_ID } from '../schema'
 
 const PROJECTS = [
   {
@@ -77,7 +78,7 @@ const app = (name, url, description, os, category) => ({
   description,
   operatingSystem: os,
   applicationCategory: category,
-  author: { '@type': 'Person', name: 'Colin Tucker', url: 'https://fangjet.com/' },
+  author: { '@type': 'Person', '@id': PERSON_ID, name: 'Colin Tucker', url: 'https://fangjet.com/' },
 })
 
 const JSON_LD = {
