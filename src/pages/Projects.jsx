@@ -5,6 +5,8 @@ import { PERSON_ID } from '../schema'
 const PROJECTS = [
   {
     id: 'elsie-family',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'SoftwareApplication', os: 'Android', category: 'UtilitiesApplication', summary: 'Accessibility-focused Android launcher for older adults, with a paired caregiver companion app.' },
     title: 'Elsie Family',
     statusTag: 'Live on Play Store; caregiver app in active development',
     links: [
@@ -18,6 +20,8 @@ const PROJECTS = [
   },
   {
     id: 'sunny-and-misty',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'SoftwareApplication', os: 'Android, iOS', category: 'WeatherApplication', summary: 'A pet weather app built natively for Android (Kotlin, Compose) and iOS (Swift, SwiftUI).' },
     title: 'Sunny & Misty',
     links: [
       { label: 'Android', href: 'https://github.com/tuckercr/weather-android' },
@@ -30,6 +34,8 @@ const PROJECTS = [
   },
   {
     id: 'rolo-crm',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'WebApplication', os: 'Web', category: 'BusinessApplication', summary: 'A relationship-first CRM with a follow-up rules engine and an MCP server for AI assistants, built for Data Story Strategy.' },
     title: 'Rolo CRM',
     statusTag: 'Contract work',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/rolo-showcase' }],
@@ -39,6 +45,8 @@ const PROJECTS = [
   },
   {
     id: 'hark',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'SoftwareApplication', os: 'Android', category: 'UtilitiesApplication', summary: 'Fully on-device wake word speech recognition for Android, powered by PocketSphinx.' },
     title: 'Hark: Offline Wake Word Detection',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/wakewordapp' }],
     description:
@@ -47,6 +55,8 @@ const PROJECTS = [
   },
   {
     id: 'whiteboard-camera',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'SoftwareApplication', os: 'Android', category: 'MultimediaApplication', summary: 'Android prototype that removes the presenter from a whiteboard video feed in real time using OpenCV and the NDK.' },
     title: 'Whiteboard Camera',
     statusTag: 'Contract work',
     description:
@@ -55,6 +65,8 @@ const PROJECTS = [
   },
   {
     id: 'commercial-translation-diagnostic',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'WebApplication', os: 'Web', category: 'BusinessApplication', summary: 'An AI-assisted diagnostic platform that drafts findings reports with Claude for consultant review, built for Data Story Strategy.' },
     title: 'Commercial Translation Diagnostic',
     statusTag: 'Contract work',
     description:
@@ -63,6 +75,8 @@ const PROJECTS = [
   },
   {
     id: 'fangjet',
+    // Structured data only (JSON-LD below); not shown on the page.
+    schema: { type: 'WebApplication', url: 'https://fangjet.com/', os: 'Web', category: 'DeveloperApplication', summary: 'This portfolio site: React and Vite, prerendered to static HTML, served from Firebase Hosting.' },
     title: 'fangjet.com',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/fangjet' }],
     description:
@@ -71,30 +85,24 @@ const PROJECTS = [
   },
 ]
 
-const app = (name, url, description, os, category) => ({
-  '@type': 'SoftwareApplication',
-  name,
-  url,
-  description,
-  operatingSystem: os,
-  applicationCategory: category,
-  author: { '@type': 'Person', '@id': PERSON_ID, name: 'Colin Tucker', url: 'https://fangjet.com/' },
-})
-
+// Built from PROJECTS so the structured data always lists every card, in page order.
+// Each item links to schema.url, else its first public link, else its card's anchor.
 const JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  itemListElement: [
-    app('Elsie Family', 'https://www.elsiefamily.com',
-      'Accessibility-focused Android launcher for older adults, with a paired caregiver companion app.',
-      'Android', 'UtilitiesApplication'),
-    app('Sunny & Misty', 'https://github.com/tuckercr/weather-android',
-      'A pet weather app built natively for Android (Kotlin, Compose) and iOS (Swift, SwiftUI).',
-      'Android, iOS', 'WeatherApplication'),
-    app('Hark', 'https://github.com/tuckercr/wakewordapp',
-      'Fully on-device wake word speech recognition for Android, powered by PocketSphinx.',
-      'Android', 'UtilitiesApplication'),
-  ].map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })),
+  itemListElement: PROJECTS.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': p.schema.type,
+      name: p.title,
+      url: p.schema.url ?? p.links?.[0]?.href ?? `https://fangjet.com/projects#${p.id}`,
+      description: p.schema.summary,
+      operatingSystem: p.schema.os,
+      applicationCategory: p.schema.category,
+      author: { '@type': 'Person', '@id': PERSON_ID, name: 'Colin Tucker', url: 'https://fangjet.com/' },
+    },
+  })),
 }
 
 export default function Projects() {
