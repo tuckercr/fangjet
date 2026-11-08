@@ -47,8 +47,18 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Keep honest
 
-- The home page's test-count claims (500+ on Elsie, 110+ on Rolo) were corrected and deployed
-  10-27. Revisit if either count changes materially. (10-27)
+- Test-count claims, recounted 11-07 by `@Test` / PHPUnit method:
+  - Elsie card: 550+ unit tests (555) plus 25 Compose UI tests. The card said 260+, a figure
+    from the site's launch commit on 10-24 that the codebase had doubled since.
+  - Sunny & Misty card: 520+ unit tests (527) and 29 Compose UI tests in `weather-android`,
+    550+ XCTest tests (557, in 39 files) on iOS. The iOS count is Colin's; that repo is not on
+    this machine.
+  - Rolo: 110+ on the home page and the card (115, the same in `rolo-showcase`, which the card
+    links to).
+  - The home page no longer carries an Elsie count; it lives on the card. Both cards' "GitHub
+    Actions CI" claims were checked 11-07: CI runs and passes on `weather-android` and `elsie`.
+  Recount when a project's tests change materially, and keep the numbers rounded down. (10-27,
+  recounted 11-07)
 
 ## Done
 
