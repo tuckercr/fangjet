@@ -35,14 +35,14 @@ const PROJECTS = [
   {
     id: 'rolo-crm',
     // Structured data only (JSON-LD below); not shown on the page.
-    schema: { type: 'WebApplication', os: 'Web', category: 'BusinessApplication', summary: 'A relationship-first CRM with a follow-up rules engine and an MCP server for AI assistants, built for Data Story Strategy.' },
+    schema: { type: 'WebApplication', os: 'Web', category: 'BusinessApplication', summary: 'A relationship-first CRM with a follow-up rules engine, an MCP server for AI assistants, and a Slack bot that runs the daily follow-up routine, built for Data Story Strategy.' },
     title: 'Rolo CRM',
     statusTag: 'Contract work',
     links: [{ label: 'GitHub', href: 'https://github.com/tuckercr/rolo-showcase' }],
     description:
-      'A relationship-first CRM built for Data Story Strategy, a commercial translation firm for diagnostic and biotech companies, in production since July 2026. A configurable rules engine schedules each contact\'s next follow-up, and a dashboard and daily email surface what\'s overdue. An MCP server lets AI assistants read contacts and propose changes, with every agent write gated on human approval. Plain PHP 8.4 and MariaDB, server-rendered with no build step.',
-    tags: ['PHP 8.4', 'MariaDB', 'PHPUnit', 'MCP'],
-    note: '110+ PHPUnit tests, including integration tests against a real MariaDB',
+      'A relationship-first CRM built for Data Story Strategy, a commercial translation firm for diagnostic and biotech companies, in production since July 2026. A configurable rules engine schedules each contact\'s next follow-up, and a dashboard and daily email surface what\'s overdue. An MCP server lets AI assistants read contacts and propose changes, with every agent write gated on human approval. A Slack bot runs the daily routine: a 5 PM debrief asks about each contact due that day, buttons and a modal log the answers through the same approval pipeline, and slash commands answer contact lookups without opening the app. All of it on plain PHP 8.4 and MariaDB, server-rendered with no build step and no resident process.',
+    tags: ['PHP 8.4', 'MariaDB', 'PHPUnit', 'MCP', 'Slack API'],
+    note: '140+ PHPUnit tests, including integration tests against a real MariaDB',
   },
   {
     id: 'hark',
