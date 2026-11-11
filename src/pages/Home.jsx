@@ -9,7 +9,7 @@ const CARDS = [
   },
   {
     title: 'Tested',
-    body: 'Unit tests on business logic, not just smoke tests. 500+ on Elsie, 110+ on Rolo CRM. I write tests because bugs in production are expensive.',
+    body: 'Unit tests on business logic, not just smoke tests. 500+ on Elsie, 140+ on Rolo CRM. I write tests because bugs in production are expensive.',
   },
   {
     title: 'Shipped',
