@@ -29,7 +29,6 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
       the problem and who it is for, the decisions and trade-offs, screenshots, results, and
       a link to the repo for the rest. Elsie and the Diagnostic have no public repo, so they
       gain the most. Add each page to the sitemap and link it from its card on `/projects`.
-- [ ] **Résumé PDF still links the old repo.** (10-26)
 - [ ] **Tidy the Tailwind one-off values.** `CLAUDE.md` says arbitrary values are kept only
       where a comment explains why (the CRT geometry, the cursor height, two grid templates);
       anything beyond that list should become a token. (10-24)
@@ -59,6 +58,11 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
       tokens/s in 8 GB. Both, and Gemma with thinking on, answered that alarms belong in UTC
       "regardless of daylight saving", backwards for a daily local-time reminder. The numbers
       live in `LOCAL_RESULTS` in `AI.jsx`; re-measure if the models or the machine change.
+- [x] **Résumé updated** (11-19) in the Google Doc "Colin Tucker - Resume" (Colin's Drive),
+      then exported to `public/colin-tucker-resume.pdf`: weather links moved from `cats-dogs` to
+      `weather-android`/`weather-iOS`, Sunny & Misty shipped on both stores, recounted test
+      counts, the Rolo Slack bot, and fangjet.com in the contact line. Edit the doc, then
+      re-export; the PDF is not the source.
 - [x] **Old WordPress install removed from IONOS** (11-19): Colin deleted its files and its
       MySQL database. fangjet.com had not been served from it since 10-30.
 - [x] **Search engines set up** (11-14 to 11-19). Google Search Console has a Domain property
