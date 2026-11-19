@@ -9,11 +9,6 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Do soon
 
-- [ ] **The old WordPress install may still sit in the IONOS webspace.** fangjet.com stopped
-      being served from it on 10-30, but its files and MySQL database were never removed. Back
-      them up and delete them — carefully: Rolo lives in its own `/crm` folder in the same
-      webspace and `rolo/docs/PROJECT_NOTES.md` warns never to write into
-      `/clickandbuilds/FANGJET`. Leave Rolo alone. (10-24)
 - [ ] **`/ai` page rework, remaining items.** Agreed 11-06: new terminal transcript (DST
       reminder bug: find, failing test, fix) and rewritten Architecture exploration / Test
       generation cards. Still to do:
@@ -27,6 +22,13 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
     a real Elsie or Hark bug if one fits.
   - **On-device models on Android** (optional, later): Gemini Nano via ML Kit GenAI or
     MediaPipe LLM Inference in a small test app, if Colin wants that angle on the page.
+- [ ] **A detail page per project** (idea, 11-19), e.g. `/projects/elsie`. One page per
+      project gives searches like "Elsie launcher Android" somewhere to land and doubles as
+      interview material. The GitHub READMEs already carry most of the technical detail
+      (Sunny & Misty's run to 700+ lines), so a page should add what a README does not:
+      the problem and who it is for, the decisions and trade-offs, screenshots, results, and
+      a link to the repo for the rest. Elsie and the Diagnostic have no public repo, so they
+      gain the most. Add each page to the sitemap and link it from its card on `/projects`.
 - [ ] **Résumé PDF still links the old repo.** (10-26)
 - [ ] **Tidy the Tailwind one-off values.** `CLAUDE.md` says arbitrary values are kept only
       where a comment explains why (the CRT geometry, the cursor height, two grid templates);
@@ -57,6 +59,8 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
       tokens/s in 8 GB. Both, and Gemma with thinking on, answered that alarms belong in UTC
       "regardless of daylight saving", backwards for a daily local-time reminder. The numbers
       live in `LOCAL_RESULTS` in `AI.jsx`; re-measure if the models or the machine change.
+- [x] **Old WordPress install removed from IONOS** (11-19): Colin deleted its files and its
+      MySQL database. fangjet.com had not been served from it since 10-30.
 - [x] **Search engines set up** (11-14 to 11-19). Google Search Console has a Domain property
       for `fangjet.com` (covers www and http), verified by the `google-site-verification` TXT
       record in Cloudflare DNS: keep that record. Owned by Colin's second Google account (the
@@ -64,8 +68,9 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
       needs no record of its own. IndexNow pings Bing and the others after each deploy
       (`npm run indexnow`, see `CLAUDE.md`). Bing's first report flagged duplicate titles and
       descriptions; the only live duplicate was the 404 page reusing the home description,
-      fixed 11-19. It also flagged few inbound links: Colin to link fangjet.com from GitHub,
-      LinkedIn, the Play listing's developer site and the Elsie site footer.
+      fixed 11-19. It also flagged few inbound links. Done by 11-19: LinkedIn, the GitHub
+      profile's website field and README, and the elsiefamily.com footer. Search Console showed
+      `/` and `/ai` indexed on 11-19.
 - [x] **`/ai` agents section** (11-17): project rules (linking this repo's `CLAUDE.md`),
       memory, the Rolo MCP server, connected tools, and the Diagnostic as AI in a client
       product. The MCP card moved out of "how I use it", replaced by Debugging.
