@@ -61,7 +61,8 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 - [x] **Résumé updated** (11-19) in the Google Doc "Colin Tucker - Resume" (Colin's Drive),
       then exported to `public/colin-tucker-resume.pdf`: weather links moved from `cats-dogs` to
       `weather-android`/`weather-iOS`, Sunny & Misty shipped on both stores, recounted test
-      counts, the Rolo Slack bot, and fangjet.com in the contact line. Edit the doc, then
+      counts and the Rolo Slack bot. Colin kept his Gmail address and took fangjet.com back
+      out of the contact line (it's on the FangJet job line). Edit the doc, then
       re-export; the PDF is not the source.
 - [x] **Old WordPress install removed from IONOS** (11-19): Colin deleted its files and its
       MySQL database. fangjet.com had not been served from it since 10-30.
