@@ -25,19 +25,15 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 - [ ] **`/ai` page rework, remaining items.** Agreed 11-06: new terminal transcript (DST
       reminder bug: find, failing test, fix) and rewritten Architecture exploration / Test
       generation cards. Still to do:
-  - **Personalized agents section.** Move the MCP integration card here (Rolo CRM connector).
-    Add per-project agent setup (CLAUDE.md, skills, hooks, memory, e.g. "no push without
-    approval") linking this repo's public `CLAUDE.md`. Link the Commercial Translation
-    Diagnostic as an AI product built for a client: `/projects#commercial-translation-diagnostic`.
-    Ask Colin for any other skills or MCP servers worth naming.
   - **Local and on-device models section.** The strongest Android tie-in (privacy, latency,
     battery, model size). Candidates: Gemini Nano via ML Kit GenAI, MediaPipe LLM Inference,
     llama.cpp on Android, Ollama / LM Studio for keeping private code local, Hark's offline
-    wake-word detection. Needs Colin's actual experience before any copy is written.
+    wake-word detection. Needs Colin's actual experience before any copy is written: he is
+    setting up a local model on his Mac mini first (11-17).
   - **Closing.** Add one line on limits (e.g. "I don't ship code I can't explain") and links
     to Projects and Contact.
-  - **SEO.** Update the page description to mention agents and local models; bump the
-    sitemap `lastmod` for `/ai`.
+  - **SEO.** Description now mentions agents and `lastmod` is bumped (11-17); add local
+    models to the description when that section lands.
   - **Terminal is illustrative.** The DST transcript is a plausible example, not a quote from
     a real session. Swap in a real Elsie or Hark bug if one fits.
 - [ ] **Résumé PDF still links the old repo.** (10-26)
@@ -62,6 +58,18 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Done
 
+- [x] **Search engines set up** (11-14 to 11-19). Google Search Console has a Domain property
+      for `fangjet.com` (covers www and http), verified by the `google-site-verification` TXT
+      record in Cloudflare DNS: keep that record. Owned by Colin's second Google account (the
+      one at `/u/1/` in his browser). Bing Webmaster Tools imported it from Search Console, so it
+      needs no record of its own. IndexNow pings Bing and the others after each deploy
+      (`npm run indexnow`, see `CLAUDE.md`). Bing's first report flagged duplicate titles and
+      descriptions; the only live duplicate was the 404 page reusing the home description,
+      fixed 11-19. It also flagged few inbound links: Colin to link fangjet.com from GitHub,
+      LinkedIn, the Play listing's developer site and the Elsie site footer.
+- [x] **`/ai` agents section** (11-17): project rules (linking this repo's `CLAUDE.md`),
+      memory, the Rolo MCP server, connected tools, and the Diagnostic as AI in a client
+      product. The MCP card moved out of "how I use it", replaced by Debugging.
 - [x] **Hark is on the projects page.** Verified live 11-02: `src/pages/Projects.jsx` carries
       "Hark: Offline Wake Word Detection" linking `tuckercr/wakewordapp`, and fangjet.com/projects
       serves it. The cross-project note still had this as outstanding; it was stale.

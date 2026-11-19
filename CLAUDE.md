@@ -50,7 +50,12 @@ Portfolio and studio site for Colin Tucker and FangJet LLC, live at https://fang
 npm run lint
 npm run build
 firebase deploy --only hosting
+npm run indexnow
 ```
+
+`npm run indexnow` tells Bing and the other IndexNow engines that the sitemap's pages changed
+(`scripts/indexnow.mjs`; the key file is `public/<key>.txt`). Google ignores IndexNow; it reads the
+sitemap, which Search Console has.
 
 Pushing to GitHub does not deploy. Before deploying, check the live site matches `main` (build `main`
 and compare its `dist/assets/index-*.js` name with the one fangjet.com serves), so a deploy never
@@ -101,7 +106,8 @@ The `@theme` block in `src/styles/global.css` (each also exists as a CSS variabl
 - **Never `git push` without an explicit go-ahead.** Commit locally, then wait to be told to push.
   Pushing and deploying are separate steps; neither implies the other.
 - **"Deploy"** means: `npm run lint`, `npm run build`, check the live site matches `main` (see
-  Deploying), then `firebase deploy --only hosting`, then confirm the change on the live site.
+  Deploying), then `firebase deploy --only hosting`, then `npm run indexnow`, then confirm the
+  change on the live site.
   **"Push"** means `git push` to `origin/main`. "Deploy and push" means both.
 - Commit only the files for the change being discussed. If other files are modified, leave them out.
 - Preview a visual change at desktop and phone widths before deploying it, and say so if it was not checked.

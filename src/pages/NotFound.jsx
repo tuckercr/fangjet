@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 export default function NotFound() {
   return (
     <div>
-      <SEO title="Page not found" noindex />
+      <SEO title="Page not found" description="There is no page at this address on fangjet.com." noindex />
       <section className="hero-gradient border-b border-border px-8 pb-16 narrow:px-5 narrow:pb-12">
         <div className="mx-auto max-w-page pt-14">
           <span className="fj-label">// 404</span>
