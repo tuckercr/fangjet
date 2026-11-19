@@ -114,7 +114,7 @@ export default function Projects() {
   return (
     <div className="mx-auto max-w-page px-8 pb-20 narrow:px-5 narrow:pb-16">
       <SEO
-        title="Projects"
+        title="Android and iOS Projects"
         description="Android and iOS apps by Colin Tucker: Elsie accessibility launcher, Sunny & Misty, Hark wake word detection, Rolo CRM, and more."
         path="/projects"
         jsonLd={JSON_LD}

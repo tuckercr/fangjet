@@ -61,7 +61,7 @@ export default function AI() {
   return (
     <div>
       <SEO
-        title="AI"
+        title="How I Use AI"
         description="How Colin Tucker uses AI in software work: agents set up per project, an MCP server built for a CRM, and local models tested on a Mac mini."
         path="/ai"
       />

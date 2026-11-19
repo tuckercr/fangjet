@@ -5,7 +5,8 @@ const DEFAULT_IMG = `${BASE}/preview-image.png`
 // React 19 hoists <title>, <meta> and <link> rendered anywhere in the tree into <head>,
 // so no head-management library is needed.
 export default function SEO({ title, description, path = '', jsonLd, noindex = false }) {
-  const fullTitle = title ? `${title} | FangJet` : 'Colin Tucker | Senior Android Engineer'
+  // Every title carries Colin's name: recruiters search for him, not for the FangJet brand.
+  const fullTitle = title ? `${title} | Colin Tucker` : 'Colin Tucker | Senior Android Engineer'
   const desc = description || DEFAULT_DESC
   const url = `${BASE}${path}`
 
