@@ -16,21 +16,25 @@ const PROJECTS = [
     description:
       'An Android launcher for older adults and people with low vision, paired with a caregiver app that configures it remotely. Both apps live in one multi-module Kotlin codebase with shared contracts, pair with a 6-digit code, and use Firestore security rules to enforce which side owns what. The launcher stays simple and legible: large color-coded buttons, medication reminders, voice commands, a magnifier, and photo speed dial.',
     tags: ['Kotlin', 'Jetpack Compose', 'Hilt', 'Room', 'Firebase', 'MVVM'],
-    note: '550+ unit tests + Compose UI tests · multi-module · GitHub Actions CI',
+    note: '740+ unit tests + Compose UI tests · multi-module · GitHub Actions CI',
   },
   {
     id: 'sunny-and-misty',
     // Structured data only (JSON-LD below); not shown on the page.
     schema: { type: 'SoftwareApplication', os: 'Android, iOS', category: 'WeatherApplication', summary: 'A pet weather app built natively for Android (Kotlin, Compose) and iOS (Swift, SwiftUI).' },
     title: 'Sunny & Misty',
+    statusTag: 'Live on Play Store and App Store',
     links: [
-      { label: 'Android', href: 'https://github.com/tuckercr/weather-android' },
-      { label: 'iOS', href: 'https://github.com/tuckercr/weather-iOS' },
+      { label: 'Website', href: 'https://sunnyandmisty.com' },
+      { label: 'Play Store', href: 'https://play.google.com/store/apps/details?id=com.fangjet.weather' },
+      { label: 'App Store', href: 'https://apps.apple.com/app/id6827945995' },
+      { label: 'Android code', href: 'https://github.com/tuckercr/weather-android' },
+      { label: 'iOS code', href: 'https://github.com/tuckercr/weather-iOS' },
     ],
     description:
       'A weather app where Sunny the dog and Misty the cat act out the forecast and suggest the best time for a walk. Native on both platforms: Kotlin/Compose for Android, Swift/SwiftUI for iOS. Features include multiple saved cities, multi-day forecasts, animated radar, and scheduled daily weather briefings. Offline-first: per-city caching paints instantly and refreshes in the background. Feature switches and walk-safety thresholds are tunable from Remote Config without shipping a build.',
     tags: ['Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'WorkManager', 'DataStore', 'Firebase'],
-    note: '520+ unit tests + Compose UI tests on Android · 550+ XCTest tests on iOS · GitHub Actions CI',
+    note: '780+ unit tests + Compose UI tests on Android · 720+ XCTest tests on iOS · GitHub Actions CI',
   },
   {
     id: 'rolo-crm',
@@ -42,7 +46,7 @@ const PROJECTS = [
     description:
       'A relationship-first CRM built for Data Story Strategy, a commercial translation firm for diagnostic and biotech companies, in production since July 2026. A configurable rules engine schedules each contact\'s next follow-up, and a dashboard and daily email surface what\'s overdue. An MCP server lets AI assistants read contacts and propose changes, with every agent write gated on human approval. A Slack bot runs the daily routine: a 5 PM debrief asks about each contact due that day, buttons and a modal log the answers through the same approval pipeline, and slash commands answer contact lookups without opening the app. All of it on plain PHP 8.4 and MariaDB, server-rendered with no build step and no resident process.',
     tags: ['PHP 8.4', 'MariaDB', 'PHPUnit', 'MCP', 'Slack API'],
-    note: '140+ PHPUnit tests, including integration tests against a real MariaDB',
+    note: '190+ PHPUnit tests, including integration tests against a real MariaDB',
   },
   {
     id: 'hark',
