@@ -25,17 +25,16 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 - [ ] **`/ai` page rework, remaining items.** Agreed 11-06: new terminal transcript (DST
       reminder bug: find, failing test, fix) and rewritten Architecture exploration / Test
       generation cards. Still to do:
-  - **Local and on-device models section.** The strongest Android tie-in (privacy, latency,
-    battery, model size). Candidates: Gemini Nano via ML Kit GenAI, MediaPipe LLM Inference,
-    llama.cpp on Android, Ollama / LM Studio for keeping private code local, Hark's offline
-    wake-word detection. Needs Colin's actual experience before any copy is written: he is
-    setting up a local model on his Mac mini first (11-17).
   - **Closing.** Add one line on limits (e.g. "I don't ship code I can't explain") and links
     to Projects and Contact.
   - **SEO.** Description now mentions agents and `lastmod` is bumped (11-17); add local
     models to the description when that section lands.
   - **Terminal is illustrative.** The DST transcript is a plausible example, not a quote from
-    a real session. Swap in a real Elsie or Hark bug if one fits.
+    a real session. Its stated cause was itself wrong until 11-19 ("stored as local time, not
+    UTC"), the same mistake both local models made; it now names a fixed UTC instant. Swap in
+    a real Elsie or Hark bug if one fits.
+  - **On-device models on Android** (optional, later): Gemini Nano via ML Kit GenAI or
+    MediaPipe LLM Inference in a small test app, if Colin wants that angle on the page.
 - [ ] **Résumé PDF still links the old repo.** (10-26)
 - [ ] **Tidy the Tailwind one-off values.** `CLAUDE.md` says arbitrary values are kept only
       where a comment explains why (the CRT geometry, the cursor height, two grid templates);
@@ -58,6 +57,11 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Done
 
+- [x] **`/ai` local models section** (11-19), from Colin's own setup: Ollama on his Mac mini
+      (M4, 16 GB), Qwen 3.5 4B (MLX) at about 27 tokens/s in 4 GB, Gemma 4 12B at 16 to 22
+      tokens/s in 8 GB. Both, and Gemma with thinking on, answered that alarms belong in UTC
+      "regardless of daylight saving", backwards for a daily local-time reminder. The numbers
+      live in `LOCAL_RESULTS` in `AI.jsx`; re-measure if the models or the machine change.
 - [x] **Search engines set up** (11-14 to 11-19). Google Search Console has a Domain property
       for `fangjet.com` (covers www and http), verified by the `google-site-verification` TXT
       record in Cloudflare DNS: keep that record. Owned by Colin's second Google account (the

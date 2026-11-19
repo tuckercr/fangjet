@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 const TERMINAL_LINES = [
   { type: 'cmd',  text: 'find why reminders fire an hour late after the DST change' },
   { type: 'out',  text: 'Reading ReminderScheduler.kt, AlarmRepository.kt...' },
-  { type: 'out',  text: 'Cause: trigger time stored as local time, not UTC' },
+  { type: 'out',  text: 'Cause: next alarm saved as a fixed UTC instant, not 8:00 local' },
   { type: 'cmd',  text: 'write a failing test for that first' },
   { type: 'out',  text: '✓ ReminderSchedulerTest: dstForwardShift (fails)' },
   { type: 'cmd',  text: 'now fix it' },
@@ -48,12 +48,21 @@ const AGENT_SETUP = [
   },
 ]
 
+// Measured 11-19 on a Mac mini (M4, 16 GB) with Ollama on Apple's MLX engine, asking each
+// model the question in LOCAL_PROMPT. Update the numbers if the models or the machine change.
+const LOCAL_PROMPT = 'Why should an Android reminder app store alarm trigger times in UTC rather than local time?'
+
+const LOCAL_RESULTS = [
+  { model: 'Qwen 3.5 4B', memory: '4 GB', speed: 'about 27', verdict: 'No' },
+  { model: 'Gemma 4 12B', memory: '8 GB', speed: '16 to 22', verdict: 'No, thinking on or off' },
+]
+
 export default function AI() {
   return (
     <div>
       <SEO
         title="AI"
-        description="How Colin Tucker uses AI in software work: agents set up per project, an MCP server built for a CRM, and daily work from architecture to tests and debugging."
+        description="How Colin Tucker uses AI in software work: agents set up per project, an MCP server built for a CRM, and local models tested on a Mac mini."
         path="/ai"
       />
 
@@ -130,6 +139,64 @@ export default function AI() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section className="border-b border-border px-8 py-14 narrow:px-5 narrow:py-10">
+        <div className="mx-auto max-w-page">
+          <span className="fj-label">// local models</span>
+          <div className="mt-4 max-w-2xl">
+            <p className="mb-5 text-lg leading-relaxed text-muted">
+              Some code shouldn't leave the machine, so I've been testing local models with Ollama on a Mac mini
+              (M4, 16 GB). To see where they're good enough, I asked two of them a question I know the answer to:
+            </p>
+            <p className="mb-8 border-l-2 border-accent pl-4 font-mono text-base leading-relaxed text-text">
+              {LOCAL_PROMPT}
+            </p>
+          </div>
+
+          <div className="mb-8 overflow-x-auto">
+            <table className="w-full border-collapse text-left text-base leading-relaxed tabular-nums">
+              <thead>
+                <tr className="border-b border-border font-mono text-sm text-accent-hover">
+                  <th className="py-3 pr-6 narrow:pr-3 font-normal">model</th>
+                  <th className="py-3 pr-6 narrow:pr-3 font-normal">memory</th>
+                  <th className="py-3 pr-6 narrow:pr-3 font-normal">tokens/s</th>
+                  <th className="py-3 font-normal">got daylight saving right?</th>
+                </tr>
+              </thead>
+              <tbody>
+                {LOCAL_RESULTS.map(({ model, memory, speed, verdict }) => (
+                  <tr key={model} className="border-b border-border">
+                    <td className="py-3 pr-6 narrow:pr-3 text-text">{model}</td>
+                    <td className="py-3 pr-6 narrow:pr-3 text-muted">{memory}</td>
+                    <td className="py-3 pr-6 narrow:pr-3 text-muted">{speed}</td>
+                    <td className="py-3 text-muted">{verdict}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="flex max-w-2xl flex-col gap-5 text-base leading-relaxed text-muted">
+            <p className="m-0">
+              Both answered fast and fluently: UTC is immune to daylight saving, so store alarms in UTC. For a daily
+              8:00 reminder that's backwards. A fixed UTC instant fires at 9:00 once the clocks spring forward, which
+              is the bug the example at the top of this page fixes. The time of day belongs in local time; only the
+              next alarm becomes an instant.
+            </p>
+            <p className="m-0">
+              Where they earn a place: code that can't go to a cloud model, boilerplate, quick lookups, working
+              offline. What they need is someone who knows the domain reading every answer. It's the rule I apply to
+              any AI tool, applied harder.
+            </p>
+            <p className="m-0">
+              Memory decides what's practical. At 4 GB, the small model leaves room for Android Studio and a Gradle
+              build. At 8 GB, the 12B doesn't: with builds running beside it, macOS started swapping to disk and
+              answers slowed to a crawl. Phones have the same limits, tighter, which is why Hark does its speech
+              recognition on the device with a model sized for it.
+            </p>
+          </div>
         </div>
       </section>
 
