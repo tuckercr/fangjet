@@ -49,8 +49,8 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Done
 
-- [x] **`/ai` linked from the site** (11-19): a line in the home page's about section and a
-      "How I use AI" footer link on every page. It had been in the sitemap but unlinked since
+- [x] **`/ai` linked from the site** (11-19): a line in the home page's about section and an
+      "ai" link in the header, after projects. (A footer link went live briefly, then moved to the header.) It had been in the sitemap but unlinked since
       10-24. `/` and `/ai` lastmod bumped, IndexNow pinged.
 - [x] **`/ai` local models section** (11-19), from Colin's own setup: Ollama on his Mac mini
       (M4, 16 GB), Qwen 3.5 4B (MLX) at about 27 tokens/s in 4 GB, Gemma 4 12B at 16 to 22

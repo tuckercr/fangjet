@@ -41,6 +41,7 @@ export default function Nav() {
       <nav className={`phone:w-full phone:border-t phone:border-border ${open ? 'phone:block' : 'phone:hidden'}`}>
         <ul className="flex phone:flex-col phone:pt-2 phone:pb-3">
           <li><NavLink to="/projects" className={pageLink} onClick={close}>projects</NavLink></li>
+          <li><NavLink to="/ai" className={pageLink} onClick={close}>ai</NavLink></li>
           <li>
             <a
               href="/colin-tucker-resume.pdf"
