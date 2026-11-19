@@ -14,6 +14,8 @@ export default function Footer() {
       {dot}
       <a href="https://www.linkedin.com/in/colin-r-tucker/" target="_blank" rel="noopener noreferrer" className={link}>LinkedIn</a>
       {dot}
+      <Link to="/ai" className={link}>How I use AI</Link>
+      {dot}
       <Link to="/privacy-policy" className={link}>Privacy Policy</Link>
     </footer>
   )

@@ -14,14 +14,6 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
       them up and delete them — carefully: Rolo lives in its own `/crm` folder in the same
       webspace and `rolo/docs/PROJECT_NOTES.md` warns never to write into
       `/clickandbuilds/FANGJET`. Leave Rolo alone. (10-24)
-- [ ] **`/ai` is in the sitemap but not in the navigation.** Confirmed 11-02:
-      `public/sitemap.xml` lists `/`, `/ai`, `/projects`, `/contact`, while the nav links `/`,
-      `/projects`, `/contact`, `/privacy-policy`. So `/ai` is reachable and indexed but
-      unlinked, and `/privacy-policy` is linked but unlisted. Decide whether `/ai` is public
-      (put it back in the nav) or retired (drop it from the sitemap); the current state is
-      neither. Rechecked 11-06: still nothing in `src/` links `/ai`. Leaning public (footer
-      or home link), since AI-assisted work is a selling point in Android interviews.
-      (10-24, rechecked 11-02, 11-06)
 - [ ] **`/ai` page rework, remaining items.** Agreed 11-06: new terminal transcript (DST
       reminder bug: find, failing test, fix) and rewritten Architecture exploration / Test
       generation cards. Still to do:
@@ -57,6 +49,9 @@ apps" section of `cats-dogs/NOTES.md`. Each item was re-checked on the way in.
 
 ## Done
 
+- [x] **`/ai` linked from the site** (11-19): a line in the home page's about section and a
+      "How I use AI" footer link on every page. It had been in the sitemap but unlinked since
+      10-24. `/` and `/ai` lastmod bumped, IndexNow pinged.
 - [x] **`/ai` local models section** (11-19), from Colin's own setup: Ollama on his Mac mini
       (M4, 16 GB), Qwen 3.5 4B (MLX) at about 27 tokens/s in 4 GB, Gemma 4 12B at 16 to 22
       tokens/s in 8 GB. Both, and Gemma with thinking on, answered that alarms belong in UTC

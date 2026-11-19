@@ -146,6 +146,10 @@ export default function Home() {
             is contract work that never makes it onto a public GitHub profile: a whiteboard camera app,
             a relationship CRM with 110+ unit tests, and an AI-assisted diagnostic platform.
           </p>
+          <p className="mb-4 max-w-3xl text-lg leading-relaxed text-muted">
+            I use AI agents every day, set up per project and reviewed like any other code.{' '}
+            <Link to="/ai">How I use AI in my work</Link>
+          </p>
         </div>
       </section>
 
